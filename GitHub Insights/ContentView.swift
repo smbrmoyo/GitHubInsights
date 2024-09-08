@@ -12,6 +12,15 @@ struct ContentView: View {
         VStack {
             Text("Hey")
         }
+        .onAppear {
+            Task {
+                do{
+                    try await AuthRepository.shared.authenticate()
+                } catch {
+                    print(error)
+                }
+            }
+        }
     }
 }
 

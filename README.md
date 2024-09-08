@@ -8,4 +8,10 @@ The App will have:
 - A Tab for *Search*
 - A Tab for *Profile*
 
-Additional Screens will be added to support Authentication and more detailled Views.
+Additional Screens will be added to support Authentication and more detailed Views.
+
+The authentication of the user will consist in typing his username in a TextField.
+
+After that the username will be stored locally for later launches.
+
+The user will have the option to sign out, essentially resetting the stored value.
