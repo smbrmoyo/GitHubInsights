@@ -15,3 +15,9 @@ The authentication of the user will consist in typing his username in a TextFiel
 After that the username will be stored locally for later launches.
 
 The user will have the option to sign out, essentially resetting the stored value.
+
+## Steps:
+
+- [] Create empty and mock User
+- [] Build Profile
+- [] Build other screens from Profile

@@ -28,7 +28,7 @@ func makeRequest<T: Codable>(
     guard let url = components.url else {
         throw NetworkError.badRequest
     }
-    print(url)
+    
     var request = URLRequest(url: url)
     request.httpMethod = method
     request.allHTTPHeaderFields = headers

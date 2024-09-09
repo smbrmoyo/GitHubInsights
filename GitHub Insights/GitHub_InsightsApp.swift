@@ -12,7 +12,7 @@ struct GitHub_InsightsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthView()
         }
     }
 }
