@@ -34,7 +34,7 @@ class AuthViewModel: ObservableObject {
         
         Task {
             do {
-                let result = try await repository.authenticate(username: storedUsername)
+                let _ = try await repository.authenticate(username: storedUsername)
                 
                 showMainView = true
             } catch {
