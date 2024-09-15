@@ -45,7 +45,7 @@ enum ToastStyle {
 }
 
 enum Tab {
-    case profile
+    case home, profile
 }
 
 enum Regex: String {

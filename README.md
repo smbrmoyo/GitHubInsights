@@ -18,6 +18,8 @@ The user will have the option to sign out, essentially resetting the stored valu
 
 ## Steps:
 
-- [] Create empty and mock User
-- [] Build Profile
-- [] Build other screens from Profile
+- [x] Make API Call to fetch trending repositories
+- [ ] Build Home View
+- [ ] Build Row Item for Repository
+- [ ] Implement Pagination
+- [ ] Build other screens from Profile

@@ -22,7 +22,7 @@ struct ProfileNavigationRow<Content: View>: View {
                 .background(Color.background)
             
             NavigationLink {
-                
+                destination
             } label: {
                 HStack {
                     ZStack {
