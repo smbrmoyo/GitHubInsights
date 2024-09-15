@@ -8,15 +8,32 @@
 import Foundation
 
 struct User: Codable, Equatable {
-    let id, followers, following: Int
-    let login, name, location, company, blog, bio: String
+    let id, followers, following, publicRepos: Int
+    let login, name, avatarUrl, twitterUsername, location, company, blog, bio: String
     
-    static let DEFAULTUSER: User = .init(id: 0,
-                                         followers: 0,
-                                         following: 0,
-                                         login: "",
-                                         name: "",
-                                         location: "",
-                                         company: "", blog: "",
-                                         bio: "")
+    static let DEFAUL_TUSER: User = .init(id: 0,
+                                          followers: 0,
+                                          following: 0,
+                                          publicRepos: 0,
+                                          login: "",
+                                          name: "",
+                                          avatarUrl: "",
+                                          twitterUsername: "",
+                                          location: "",
+                                          company: "",
+                                          blog: "",
+                                          bio: "")
+    
+    static let MOCK_USER: User = .init(id: 123,
+                                       followers: 123,
+                                       following: 321,
+                                       publicRepos: 17,
+                                       login: "smbrmoyo",
+                                       name: "Brian Moyou",
+                                       avatarUrl: "https://avatars.githubusercontent.com/u/74922712?v=4",
+                                       twitterUsername: "brianmoyou1",
+                                       location: "Dortmund, Germany",
+                                       company: "Syntax Institut",
+                                       blog: "ballermap.com",
+                                       bio: "The more I look, the more I see.")
 }

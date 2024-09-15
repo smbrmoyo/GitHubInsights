@@ -13,6 +13,7 @@ struct GitHub_InsightsApp: App {
     var body: some Scene {
         WindowGroup {
             AuthView()
+                .environment(\.colorScheme, .dark)
         }
     }
 }

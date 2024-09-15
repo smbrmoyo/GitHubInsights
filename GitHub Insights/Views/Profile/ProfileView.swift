@@ -8,13 +8,43 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @StateObject var viewModel: ProfileViewModel = ProfileViewModel(repository: ProfileRepository.shared)
+    
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                if viewModel.uiState == .loading {
+                    ProgressView()
+                } else if viewModel.uiState == .idle {
+                    ProfileViewLoaded(user: viewModel.user)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "gear")
+                            .foregroundStyle(.blue)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundStyle(.blue)
+                    }
+                }
+            }
+            .onAppear {
+                viewModel.getUser()
+            }
         }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(viewModel: ProfileViewModel(repository: MockProfileRepository.shared))
 }

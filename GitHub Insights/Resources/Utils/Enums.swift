@@ -54,3 +54,9 @@ enum Regex: String {
     case username = "^@[a-zA-Z0-9]{3,15}$"
     case eventName = "^(?=.{3,25}$)(?!.*([\\s])\\1{2})[\\w\\s]+$"    
 }
+
+enum UIState {
+    case loading
+    case idle
+    case working
+}

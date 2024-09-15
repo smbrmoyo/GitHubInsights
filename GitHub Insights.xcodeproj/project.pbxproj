@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040D34C92C973CA400EB31D6 /* ProfileNavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D34C82C973CA400EB31D6 /* ProfileNavigationRow.swift */; };
 		04BD91412C8C6A8200DE2A08 /* GitHub_InsightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD91402C8C6A8200DE2A08 /* GitHub_InsightsApp.swift */; };
 		04BD91452C8C6A8300DE2A08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BD91442C8C6A8300DE2A08 /* Assets.xcassets */; };
 		04BD91482C8C6A8300DE2A08 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BD91472C8C6A8300DE2A08 /* Preview Assets.xcassets */; };
@@ -33,9 +34,17 @@
 		04EFB20E2C8F644C00E2FCF0 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB20D2C8F644C00E2FCF0 /* BaseTextField.swift */; };
 		04EFB2102C8F649400E2FCF0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB20F2C8F649400E2FCF0 /* String+Extension.swift */; };
 		04EFB2122C8F661B00E2FCF0 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2112C8F661B00E2FCF0 /* Color+Extension.swift */; };
+		04EFB2142C8F776400E2FCF0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2132C8F776400E2FCF0 /* ProfileViewModel.swift */; };
+		04EFB2172C8F780300E2FCF0 /* ProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2162C8F780300E2FCF0 /* ProfileRepository.swift */; };
+		04EFB21A2C8F79E300E2FCF0 /* MockProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2192C8F79E300E2FCF0 /* MockProfileRepository.swift */; };
+		04EFB21C2C8F7D4000E2FCF0 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB21B2C8F7D4000E2FCF0 /* NetworkImageView.swift */; };
+		04EFB21F2C8F7E8700E2FCF0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */; };
+		04EFB2222C8F806600E2FCF0 /* ProfileViewLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2212C8F806600E2FCF0 /* ProfileViewLoaded.swift */; };
+		04EFB2242C8F862A00E2FCF0 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2232C8F862A00E2FCF0 /* ProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040D34C82C973CA400EB31D6 /* ProfileNavigationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationRow.swift; sourceTree = "<group>"; };
 		04BD913D2C8C6A8200DE2A08 /* GitHub Insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Insights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BD91402C8C6A8200DE2A08 /* GitHub_InsightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_InsightsApp.swift; sourceTree = "<group>"; };
 		04BD91442C8C6A8300DE2A08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +72,13 @@
 		04EFB20D2C8F644C00E2FCF0 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		04EFB20F2C8F649400E2FCF0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		04EFB2112C8F661B00E2FCF0 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		04EFB2132C8F776400E2FCF0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		04EFB2162C8F780300E2FCF0 /* ProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRepository.swift; sourceTree = "<group>"; };
+		04EFB2192C8F79E300E2FCF0 /* MockProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProfileRepository.swift; sourceTree = "<group>"; };
+		04EFB21B2C8F7D4000E2FCF0 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
+		04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		04EFB2212C8F806600E2FCF0 /* ProfileViewLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewLoaded.swift; sourceTree = "<group>"; };
+		04EFB2232C8F862A00E2FCF0 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,7 @@
 		04BD913F2C8C6A8200DE2A08 /* GitHub Insights */ = {
 			isa = PBXGroup;
 			children = (
+				04EFB2152C8F77F700E2FCF0 /* Infrastructure */,
 				04EFB1FF2C8F5FBB00E2FCF0 /* Managers */,
 				04D130092C8D9B4500EB0B29 /* Resources */,
 				04BD91562C8C6F5700DE2A08 /* Model */,
@@ -134,7 +151,6 @@
 				04BD91572C8C6F8900DE2A08 /* PersistentStore.swift */,
 				04D130032C8D90E600EB0B29 /* GitHubRepo.swift */,
 				04D130052C8D92E500EB0B29 /* User.swift */,
-				04D130102C8D9FF300EB0B29 /* AuthRepository.swift */,
 				04EFB1FD2C8F5F4D00E2FCF0 /* Toast.swift */,
 			);
 			path = Model;
@@ -152,7 +168,9 @@
 		04D130162C8DB59700EB0B29 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				04EFB2202C8F805600E2FCF0 /* SubViews */,
 				04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */,
+				04EFB2132C8F776400E2FCF0 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -180,6 +198,7 @@
 			children = (
 				04EFB2032C8F605E00E2FCF0 /* ToastView.swift */,
 				04EFB20D2C8F644C00E2FCF0 /* BaseTextField.swift */,
+				04EFB21B2C8F7D4000E2FCF0 /* NetworkImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -187,6 +206,7 @@
 		04EFB2052C8F60AB00E2FCF0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04EFB21D2C8F7E7400E2FCF0 /* Formatters */,
 				04D130122C8DA07800EB0B29 /* Enums.swift */,
 				04D1300E2C8D9C3700EB0B29 /* MakeRequest.swift */,
 				04D130142C8DA17B00EB0B29 /* Constants.swift */,
@@ -219,6 +239,42 @@
 				04EFB20B2C8F626600E2FCF0 /* MainTabView.swift */,
 			);
 			path = MainTab;
+			sourceTree = "<group>";
+		};
+		04EFB2152C8F77F700E2FCF0 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				04EFB2182C8F79D700E2FCF0 /* MockRepositories */,
+				04D130102C8D9FF300EB0B29 /* AuthRepository.swift */,
+				04EFB2162C8F780300E2FCF0 /* ProfileRepository.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		04EFB2182C8F79D700E2FCF0 /* MockRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				04EFB2192C8F79E300E2FCF0 /* MockProfileRepository.swift */,
+			);
+			path = MockRepositories;
+			sourceTree = "<group>";
+		};
+		04EFB21D2C8F7E7400E2FCF0 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		04EFB2202C8F805600E2FCF0 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				04EFB2212C8F806600E2FCF0 /* ProfileViewLoaded.swift */,
+				04EFB2232C8F862A00E2FCF0 /* ProfileHeader.swift */,
+				040D34C82C973CA400EB31D6 /* ProfileNavigationRow.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,24 +350,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EFB2242C8F862A00E2FCF0 /* ProfileHeader.swift in Sources */,
 				04EFB2042C8F605E00E2FCF0 /* ToastView.swift in Sources */,
+				04EFB21A2C8F79E300E2FCF0 /* MockProfileRepository.swift in Sources */,
 				04EFB2122C8F661B00E2FCF0 /* Color+Extension.swift in Sources */,
 				04D130152C8DA17B00EB0B29 /* Constants.swift in Sources */,
 				04BD91412C8C6A8200DE2A08 /* GitHub_InsightsApp.swift in Sources */,
 				04EFB2012C8F5FC700E2FCF0 /* ToastManager.swift in Sources */,
 				04EFB20C2C8F626600E2FCF0 /* MainTabView.swift in Sources */,
+				040D34C92C973CA400EB31D6 /* ProfileNavigationRow.swift in Sources */,
 				04EFB1FA2C8F5A7B00E2FCF0 /* AuthView.swift in Sources */,
 				04EFB20E2C8F644C00E2FCF0 /* BaseTextField.swift in Sources */,
 				04D130132C8DA07800EB0B29 /* Enums.swift in Sources */,
+				04EFB2222C8F806600E2FCF0 /* ProfileViewLoaded.swift in Sources */,
 				04EFB2102C8F649400E2FCF0 /* String+Extension.swift in Sources */,
 				04EFB1F72C8F5A4300E2FCF0 /* ProfileView.swift in Sources */,
 				04D1300D2C8D9B8100EB0B29 /* SecretsManager.swift in Sources */,
 				04EFB1FE2C8F5F4D00E2FCF0 /* Toast.swift in Sources */,
+				04EFB21F2C8F7E8700E2FCF0 /* ImageCache.swift in Sources */,
 				04D1300F2C8D9C3700EB0B29 /* MakeRequest.swift in Sources */,
 				04D130062C8D92E500EB0B29 /* User.swift in Sources */,
+				04EFB21C2C8F7D4000E2FCF0 /* NetworkImageView.swift in Sources */,
 				04BD91582C8C6F8900DE2A08 /* PersistentStore.swift in Sources */,
 				04EFB1FC2C8F5AA600E2FCF0 /* AuthViewModel.swift in Sources */,
 				04D130112C8D9FF300EB0B29 /* AuthRepository.swift in Sources */,
+				04EFB2142C8F776400E2FCF0 /* ProfileViewModel.swift in Sources */,
+				04EFB2172C8F780300E2FCF0 /* ProfileRepository.swift in Sources */,
 				04D130042C8D90E600EB0B29 /* GitHubRepo.swift in Sources */,
 				04EFB2092C8F616900E2FCF0 /* View+Extension.swift in Sources */,
 				04BD914D2C8C6A8300DE2A08 /* GitHub_Insights.xcdatamodeld in Sources */,
@@ -456,6 +520,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +550,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

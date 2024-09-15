@@ -19,6 +19,8 @@ class AuthViewModel: ObservableObject {
     @Published var username = ""
     @Published var showMainView = false
     
+    // MARK: - Lifecycle
+    
     init(repository: AuthRepository) {
         self.repository = repository
         
@@ -47,7 +49,7 @@ class AuthViewModel: ObservableObject {
         Task {
             do {
                 let result = try await repository.authenticate(username: username)
-                if result != User.DEFAULTUSER {
+                if result != User.DEFAUL_TUSER {
                     showMainView = true
                 }
             } catch {
