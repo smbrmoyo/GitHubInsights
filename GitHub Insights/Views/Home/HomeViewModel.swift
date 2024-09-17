@@ -11,7 +11,8 @@ import Foundation
 class HomeViewModel: ObservableObject {
     
     // MARK: - Dependencies
-    let repository: HomeRepositoryProtocol
+    
+    private let repository: HomeRepositoryProtocol
     
     // MARK: - Properties
     
@@ -20,24 +21,24 @@ class HomeViewModel: ObservableObject {
     private var page = 1
     
     // MARK: - Lifecycle
+    
     init(repository: HomeRepositoryProtocol) {
         self.repository = repository
     }
     
     // MARK: - Functions
     
-    func fetchRepositories() {
-        Task {
-            do {
-                uiState = .loading
-                repositories = try await repository.fetchTrendingRepositories(page: page).items
-                page += 1
-                uiState = .idle
-                print(repositories)
-            } catch {
-                uiState = .idle
-                ToastManager.shared.createToast(Toast(style: .error, message: "No repositories found."))
-            }
+    func fetchRepositories() async {
+        do {
+            uiState = repositories.isEmpty ?  .loading : .idle
+            let result = try await repository.fetchTrendingRepositories(page: page).items
+            repositories.append(contentsOf: result)
+            page += 1
+            uiState = .idle
+        } catch {
+            uiState = .idle
+            ToastManager.shared.createToast(Toast(style: .error, message: "No repositories found."))
         }
     }
+    
 }

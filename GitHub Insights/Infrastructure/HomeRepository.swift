@@ -28,7 +28,15 @@ class HomeRepository: HomeRepositoryProtocol {
             throw NetworkError.unauthorized
         }
         
-        
-        return try await makeRequest(from: Constants.gitHubBaseURL+"search/repositories", parameters: ["q": "created", "per_page": "5"], headers: ["Authorization":"Bearer \(secret)"])
+        do {
+            return try await makeRequest(from: Constants.gitHubBaseURL+"search/repositories",
+                                         parameters: ["q": "created",
+                                                      "per_page": "10",
+                                                      "page": String(page)],
+                                         headers: ["Authorization":"Bearer \(secret)"])
+        } catch {
+            print(error)
+            throw error
+        }
     }
 }

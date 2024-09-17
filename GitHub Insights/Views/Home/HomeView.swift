@@ -10,11 +10,40 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel(repository: HomeRepository.shared)
     var body: some View {
-        ScrollView {
-            Text("hey")
-        }
-        .onAppear {
-            viewModel.fetchRepositories()
+        NavigationStack {
+            VStack {
+                if !viewModel.repositories.isEmpty && viewModel.uiState == .idle {
+                    RefreshableScrollView(items: viewModel.repositories,
+                                          loadMoreItems: { await viewModel.fetchRepositories() },
+                                          row: { repository in
+                        RepositoryRowView(repository: repository)
+                    })
+                } else if viewModel.repositories.isEmpty && viewModel.uiState == .loading {
+                    ProgressView()
+                }
+            }
+            .task {
+                await viewModel.fetchRepositories()
+            }
+            .searchable(text: .constant(""))
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("Trending")
+                            .font(.title)
+                        
+                        ZStack {
+                            Color.purple
+                            
+                            Image(systemName: "flame")
+                                .foregroundStyle(.white)
+                        }
+                        .frame(width: 30, height: 30)
+                        .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                    }
+                }
+            }
         }
     }
 }

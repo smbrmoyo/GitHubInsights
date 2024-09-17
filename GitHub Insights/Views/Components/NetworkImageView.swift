@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NetworkImageView: View {
     var size: CGFloat = 60
+    var cornerRadius: CGFloat = 30
     var imageURL: String
     var defaultImage: String = "person"
     @State private var uiImage = UIImage()
@@ -25,7 +26,7 @@ struct NetworkImageView: View {
                     .resizable()
                     .scaledToFill()
                     .clipped()
-                    .clipShape(Circle())
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                     .font(.system(size: size/2))
                     .frame(width: size, height: size)
                     .foregroundColor(Color(.systemPurple))
@@ -38,6 +39,6 @@ struct NetworkImageView: View {
                     }
             }
         }
-        .overlay(RoundedRectangle(cornerRadius: size/2) .stroke(Color(.systemPurple), lineWidth: 0))
+        .overlay(RoundedRectangle(cornerRadius: cornerRadius) .stroke(Color(.systemPurple), lineWidth: 0))
     }
 }
