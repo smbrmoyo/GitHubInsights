@@ -16,7 +16,7 @@ struct HomeView: View {
                     RefreshableScrollView(items: viewModel.repositories,
                                           loadMoreItems: { await viewModel.fetchRepositories() },
                                           row: { repository in
-                        RepositoryRowView(repository: repository)
+                        RepositoryRowView(gitHubRepo: repository)
                     })
                 } else if viewModel.repositories.isEmpty && viewModel.uiState == .loading {
                     ProgressView()

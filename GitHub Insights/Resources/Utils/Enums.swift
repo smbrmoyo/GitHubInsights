@@ -19,6 +19,32 @@ enum NetworkError: Error {
     case custom(message: String)
 }
 
+enum Endpoint {
+    
+    private var baseUrl: String { "https://api.github.com" }
+    
+    case organizationRepositories(organizationName: String)
+    case activity(owner: String, repo: String)
+    case user(username: String)
+    case search
+    
+    var urlString: String {
+        switch self {
+        case .organizationRepositories(organizationName: let orgName):
+            return baseUrl + "/orgs/\(orgName)/repos"
+            
+        case .activity(owner: let owner, repo: let repo):
+            return baseUrl + "/repos/\(owner)/\(repo)/activity"
+            
+        case .user(username: let username):
+            return baseUrl + "/users/\(username)"
+            
+        case .search:
+            return baseUrl + "/search/repositories"
+        }
+    }
+}
+
 enum ToastStyle {
     case error
     case warning
@@ -116,3 +142,30 @@ enum GitHubLanguage: String, CaseIterable, Codable {
         }
     }
 }
+
+enum RepositoryActivityType: String, Codable {
+    case push = "push"
+    case forcePush = "force_push"
+    case branchCreation = "branch_creation"
+    case branchDeletion = "branch_deletion"
+    case prMerge = "pr_merge"
+    case mergeQueueMerge = "merge_queue_merge"
+    
+    var systemImage: String {
+        switch self {
+        case .push:
+            return "arrow.up.circle.fill"
+        case .forcePush:
+            return "arrow.uturn.right.circle.fill"
+        case .branchCreation:
+            return "plus.circle.fill"
+        case .branchDeletion:
+            return "minus.circle.fill"
+        case .prMerge:
+            return "rectangle.stack.badge.plus"
+        case .mergeQueueMerge:
+            return "rectangle.stack.fill.badge.plus"
+        }
+    }
+}
+

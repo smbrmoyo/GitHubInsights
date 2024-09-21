@@ -13,14 +13,24 @@ struct GitHubRepo: Codable, Identifiable {
     var description: String? = ""
     var language: String? = ""
     var stargazersCount: Int = 0
+    var forks: Int = 0
+    var watchers: Int = 0
+    var size: Int = 0
     var owner: RepoOwner = .DEFAULT_REPO_OWNER
+    var updatedAt: String = ""
+    var visibility: String = ""
     
     static let MOCK_GITHUB_REPO = GitHubRepo(id: 123,
                                              name: "BallermapSwiftUI",
                                              description: "The Ballermap App written in SwiftUI",
                                              language: "Swift",
-                                             stargazersCount: 0,
-                                             owner: RepoOwner.MOCK_REPO_OWNER)
+                                             stargazersCount: 12,
+                                             forks: 32,
+                                             watchers: 1,
+                                             size: 200,
+                                             owner: RepoOwner.MOCK_REPO_OWNER,
+                                             updatedAt: Date.now.ISO8601Format(),
+                                             visibility: "private")
 }
 
 struct FetchGitHubRepoResponse: Codable {

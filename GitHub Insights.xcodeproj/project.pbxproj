@@ -30,7 +30,6 @@
 		04D1300F2C8D9C3700EB0B29 /* MakeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1300E2C8D9C3700EB0B29 /* MakeRequest.swift */; };
 		04D130112C8D9FF300EB0B29 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D130102C8D9FF300EB0B29 /* AuthRepository.swift */; };
 		04D130132C8DA07800EB0B29 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D130122C8DA07800EB0B29 /* Enums.swift */; };
-		04D130152C8DA17B00EB0B29 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D130142C8DA17B00EB0B29 /* Constants.swift */; };
 		04EFB1F72C8F5A4300E2FCF0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */; };
 		04EFB1FA2C8F5A7B00E2FCF0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1F92C8F5A7B00E2FCF0 /* AuthView.swift */; };
 		04EFB1FC2C8F5AA600E2FCF0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1FB2C8F5AA600E2FCF0 /* AuthViewModel.swift */; };
@@ -49,6 +48,11 @@
 		04EFB21F2C8F7E8700E2FCF0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */; };
 		04EFB2222C8F806600E2FCF0 /* ProfileViewLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2212C8F806600E2FCF0 /* ProfileViewLoaded.swift */; };
 		04EFB2242C8F862A00E2FCF0 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB2232C8F862A00E2FCF0 /* ProfileHeader.swift */; };
+		04F5CAAF2C9ECEAE00FDE889 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5CAAE2C9ECEAE00FDE889 /* Date+Extension.swift */; };
+		04F5CAB32C9ED11400FDE889 /* RepositoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5CAB22C9ED11400FDE889 /* RepositoryDetail.swift */; };
+		04F5CAB52C9EF74500FDE889 /* RepositoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5CAB42C9EF74500FDE889 /* RepositoryHeaderView.swift */; };
+		04F5CAB72C9F1B7300FDE889 /* RepositoryActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5CAB62C9F1B7300FDE889 /* RepositoryActivity.swift */; };
+		04F5CAB92C9F22C600FDE889 /* RepositoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5CAB82C9F22C600FDE889 /* RepositoryDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +80,6 @@
 		04D1300E2C8D9C3700EB0B29 /* MakeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRequest.swift; sourceTree = "<group>"; };
 		04D130102C8D9FF300EB0B29 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		04D130122C8DA07800EB0B29 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		04D130142C8DA17B00EB0B29 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04EFB1F92C8F5A7B00E2FCF0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04EFB1FB2C8F5AA600E2FCF0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -95,6 +98,11 @@
 		04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		04EFB2212C8F806600E2FCF0 /* ProfileViewLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewLoaded.swift; sourceTree = "<group>"; };
 		04EFB2232C8F862A00E2FCF0 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		04F5CAAE2C9ECEAE00FDE889 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		04F5CAB22C9ED11400FDE889 /* RepositoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetail.swift; sourceTree = "<group>"; };
+		04F5CAB42C9EF74500FDE889 /* RepositoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryHeaderView.swift; sourceTree = "<group>"; };
+		04F5CAB62C9F1B7300FDE889 /* RepositoryActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryActivity.swift; sourceTree = "<group>"; };
+		04F5CAB82C9F22C600FDE889 /* RepositoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 		04BD91552C8C6F5400DE2A08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04F5CAB02C9ED0F800FDE889 /* RepoDetail */,
 				040D34CA2C97432200EB31D6 /* Home */,
 				04EFB20A2C8F625700E2FCF0 /* MainTab */,
 				04EFB2022C8F604500E2FCF0 /* Components */,
@@ -189,6 +198,7 @@
 				04EFB1FD2C8F5F4D00E2FCF0 /* Toast.swift */,
 				047E2D102C98F4A200A73395 /* RepoOwner.swift */,
 				047E2D122C9907E300A73395 /* ViewOffsetKey.swift */,
+				04F5CAB62C9F1B7300FDE889 /* RepositoryActivity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,10 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				04EFB2072C8F60CE00E2FCF0 /* Extensions */,
-				04EFB21D2C8F7E7400E2FCF0 /* Formatters */,
 				04D130122C8DA07800EB0B29 /* Enums.swift */,
 				04D1300E2C8D9C3700EB0B29 /* MakeRequest.swift */,
-				04D130142C8DA17B00EB0B29 /* Constants.swift */,
+				04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -267,6 +276,7 @@
 				04EFB2082C8F616900E2FCF0 /* View+Extension.swift */,
 				04EFB20F2C8F649400E2FCF0 /* String+Extension.swift */,
 				04EFB2112C8F661B00E2FCF0 /* Color+Extension.swift */,
+				04F5CAAE2C9ECEAE00FDE889 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,20 +309,30 @@
 			path = MockRepositories;
 			sourceTree = "<group>";
 		};
-		04EFB21D2C8F7E7400E2FCF0 /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				04EFB21E2C8F7E8700E2FCF0 /* ImageCache.swift */,
-			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
 		04EFB2202C8F805600E2FCF0 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				04EFB2212C8F806600E2FCF0 /* ProfileViewLoaded.swift */,
 				04EFB2232C8F862A00E2FCF0 /* ProfileHeader.swift */,
 				040D34C82C973CA400EB31D6 /* ProfileNavigationRow.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		04F5CAB02C9ED0F800FDE889 /* RepoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				04F5CAB12C9ED10600FDE889 /* SubViews */,
+				04F5CAB22C9ED11400FDE889 /* RepositoryDetail.swift */,
+				04F5CAB82C9F22C600FDE889 /* RepositoryDetailViewModel.swift */,
+			);
+			path = RepoDetail;
+			sourceTree = "<group>";
+		};
+		04F5CAB12C9ED10600FDE889 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				04F5CAB42C9EF74500FDE889 /* RepositoryHeaderView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -395,10 +415,10 @@
 				04EFB21A2C8F79E300E2FCF0 /* MockProfileRepository.swift in Sources */,
 				040D34CC2C97432D00EB31D6 /* HomeView.swift in Sources */,
 				04EFB2122C8F661B00E2FCF0 /* Color+Extension.swift in Sources */,
-				04D130152C8DA17B00EB0B29 /* Constants.swift in Sources */,
 				04BD91412C8C6A8200DE2A08 /* GitHub_InsightsApp.swift in Sources */,
 				04EFB2012C8F5FC700E2FCF0 /* ToastManager.swift in Sources */,
 				04EFB20C2C8F626600E2FCF0 /* MainTabView.swift in Sources */,
+				04F5CAB52C9EF74500FDE889 /* RepositoryHeaderView.swift in Sources */,
 				040D34C92C973CA400EB31D6 /* ProfileNavigationRow.swift in Sources */,
 				04EFB1FA2C8F5A7B00E2FCF0 /* AuthView.swift in Sources */,
 				047E2D0F2C98F26800A73395 /* RepositoryRowView.swift in Sources */,
@@ -406,7 +426,10 @@
 				04D130132C8DA07800EB0B29 /* Enums.swift in Sources */,
 				04EFB2222C8F806600E2FCF0 /* ProfileViewLoaded.swift in Sources */,
 				040D34D22C9746E800EB31D6 /* MockHomeRepository.swift in Sources */,
+				04F5CAB32C9ED11400FDE889 /* RepositoryDetail.swift in Sources */,
 				04EFB2102C8F649400E2FCF0 /* String+Extension.swift in Sources */,
+				04F5CAAF2C9ECEAE00FDE889 /* Date+Extension.swift in Sources */,
+				04F5CAB92C9F22C600FDE889 /* RepositoryDetailViewModel.swift in Sources */,
 				047E2D132C9907E300A73395 /* ViewOffsetKey.swift in Sources */,
 				04EFB1F72C8F5A4300E2FCF0 /* ProfileView.swift in Sources */,
 				04D1300D2C8D9B8100EB0B29 /* SecretsManager.swift in Sources */,
@@ -426,6 +449,7 @@
 				04EFB2092C8F616900E2FCF0 /* View+Extension.swift in Sources */,
 				040D34CE2C97433500EB31D6 /* HomeViewModel.swift in Sources */,
 				04BD914D2C8C6A8300DE2A08 /* GitHub_Insights.xcdatamodeld in Sources */,
+				04F5CAB72C9F1B7300FDE889 /* RepositoryActivity.swift in Sources */,
 				047E2D152C99084900A73395 /* RefreshableScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,27 +582,33 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Insights/Preview Content\"";
 				DEVELOPMENT_TEAM = 27MXYDTP56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GitHub Insights";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smbrmoyo.GitHub-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -588,27 +618,33 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Insights/Preview Content\"";
 				DEVELOPMENT_TEAM = 27MXYDTP56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "GitHub Insights";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smbrmoyo.GitHub-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

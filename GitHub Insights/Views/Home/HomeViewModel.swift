@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 class HomeViewModel: ObservableObject {
     
     // MARK: - Dependencies
@@ -28,6 +27,7 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Functions
     
+    @MainActor
     func fetchRepositories() async {
         do {
             uiState = repositories.isEmpty ?  .loading : .idle

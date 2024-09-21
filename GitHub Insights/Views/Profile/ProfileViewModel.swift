@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 class ProfileViewModel: ObservableObject {
     
     // MARK: - Dependencies
@@ -25,6 +24,7 @@ class ProfileViewModel: ObservableObject {
     
     // MARK: - Functions
     
+    @MainActor
     func getUser() {
         Task {
             do {

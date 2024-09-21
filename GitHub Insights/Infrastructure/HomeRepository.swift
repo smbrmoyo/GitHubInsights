@@ -14,6 +14,13 @@ protocol HomeRepositoryProtocol {
      - returns The fetched `[GitHubRepo]`.
      */
     func fetchTrendingRepositories(page: Int) async throws -> FetchGitHubRepoResponse
+    
+    /**
+     Retrieves the latest activity for a repository
+     - parameter owner `String` owner of the repository
+     - parameter name `String` name of the repository
+     */
+    func fetchRepositoryActivity(owner: String, name: String) async throws -> [RepositoryActivity]
 }
 
 class HomeRepository: HomeRepositoryProtocol {
@@ -29,9 +36,11 @@ class HomeRepository: HomeRepositoryProtocol {
         }
         
         do {
-            return try await makeRequest(from: Constants.gitHubBaseURL+"search/repositories",
-                                         parameters: ["q": "created",
-                                                      "per_page": "10",
+            return try await makeRequest(from: Endpoint.search.urlString,
+                                         parameters: ["sort": "stars",
+                                                      "order": "desc",
+                                                      "q": "created:>\(Date.getDateForLastWeek())",
+                                                      "per_page": "20",
                                                       "page": String(page)],
                                          headers: ["Authorization":"Bearer \(secret)"])
         } catch {
@@ -39,4 +48,14 @@ class HomeRepository: HomeRepositoryProtocol {
             throw error
         }
     }
+    
+    func fetchRepositoryActivity(owner: String, name: String) async throws -> [RepositoryActivity] {
+        do {
+            return try await makeRequest(from: Endpoint.activity(owner: owner, repo: name).urlString)
+        } catch {
+            print(error)
+            throw error
+        }
+    }
+    
 }

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct NetworkImageView: View {
+    var imageURL: String
     var size: CGFloat = 60
     var cornerRadius: CGFloat = 30
-    var imageURL: String
     var defaultImage: String = "person"
     @State private var uiImage = UIImage()
     

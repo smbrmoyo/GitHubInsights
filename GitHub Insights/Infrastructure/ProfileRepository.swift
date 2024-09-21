@@ -23,10 +23,10 @@ class ProfileRepository: ProfileRepositoryProtocol {
     private init() {}
     
     func getUser() async throws -> User {
-        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") else {
+        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String else {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
-        return try await makeRequest(from: Constants.gitHubBaseURL+"users/\(username)")
+        return try await makeRequest(from: Endpoint.user(username: username).urlString)
     }
 }

@@ -25,7 +25,6 @@ struct ProfileView: View {
                         
                     } label: {
                         Image(systemName: "gear")
-                            .foregroundStyle(.blue)
                     }
                 }
                 
@@ -34,7 +33,6 @@ struct ProfileView: View {
                         
                     } label: {
                         Image(systemName: "square.and.arrow.up")
-                            .foregroundStyle(.blue)
                     }
                 }
             }

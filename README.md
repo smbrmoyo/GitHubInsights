@@ -18,8 +18,5 @@ The user will have the option to sign out, essentially resetting the stored valu
 
 ## Steps:
 
-- [x] Make API Call to fetch trending repositories
-- [ ] Build Home View
-- [ ] Build Row Item for Repository
-- [ ] Implement Pagination
-- [ ] Build other screens from Profile
+- [1/2] Build Repo Detail View
+- [ ] Add Filter to Trending Search

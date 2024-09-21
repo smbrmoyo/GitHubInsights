@@ -16,7 +16,7 @@ class AuthRepository {
     
     func authenticate(username: String) async throws -> User {
         do {
-            let result: User = try await makeRequest(from: Constants.gitHubBaseURL+"users/\(username)")
+            let result: User = try await makeRequest(from: Endpoint.user(username: username).urlString)
             UserDefaults.standard.set(username, forKey: "GITHUB_USERNAME")
             return result
         } catch {

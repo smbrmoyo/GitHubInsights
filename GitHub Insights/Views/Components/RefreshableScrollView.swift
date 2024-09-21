@@ -50,7 +50,6 @@ struct RefreshableScrollView<T: Identifiable, Content: View>: View {
             isRefreshing = false
         }
     }
-    
 }
 
 
@@ -59,5 +58,5 @@ struct RefreshableScrollView<T: Identifiable, Content: View>: View {
 #Preview {
     RefreshableScrollView(items: [GitHubRepo.MOCK_GITHUB_REPO],
                           loadMoreItems: {},
-                          row: { item in RepositoryRowView(repository: item) })
+                          row: { item in RepositoryRowView(gitHubRepo: item) })
 }
