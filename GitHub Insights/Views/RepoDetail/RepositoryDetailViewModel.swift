@@ -15,7 +15,7 @@ class RepositoryDetailViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    @Published var repositoryActivities: [RepositoryActivity] = []
+    @Published var repositoryEvents: [RepositoryEvent] = []
     @Published var uiState = UIState.idle
     private var owner = ""
     private var name = ""
@@ -23,7 +23,8 @@ class RepositoryDetailViewModel: ObservableObject {
     
     // MARK: - Lifecycle
     
-    init(repository: HomeRepositoryProtocol, gitHubRepo: GitHubRepo) {
+    init(repository: HomeRepositoryProtocol,
+         gitHubRepo: GitHubRepo) {
         self.repository = repository
         self.owner = gitHubRepo.owner.login
         self.name = gitHubRepo.name
@@ -32,16 +33,17 @@ class RepositoryDetailViewModel: ObservableObject {
     // MARK: - Functions
     
     @MainActor
-    func fetchRepositoryActivity() async {
+    func fetchRepositoryEvents() async {
         do {
             uiState = .loading
-            let result = try await repository.fetchRepositoryActivity(owner: owner, name: name)
-            repositoryActivities.append(contentsOf: result)
+            let result = try await repository.fetchRepositoryEvents(owner: owner, name: name, page: page)
+            let filteredResult = result.filter { !repositoryEvents.contains($0) }
+            repositoryEvents.append(contentsOf: filteredResult)
             page += 1
             uiState = .idle
         } catch {
             uiState = .idle
-            ToastManager.shared.createToast(Toast(style: .error, message: "No activity found."))
+            ToastManager.shared.createToast(Toast(style: .error, message: "No Events found."))
         }
     }
 }

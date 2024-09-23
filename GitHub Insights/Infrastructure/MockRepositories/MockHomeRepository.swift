@@ -19,8 +19,8 @@ class MockHomeRepository: HomeRepositoryProtocol {
         return FetchGitHubRepoResponse(items: [GitHubRepo.MOCK_GITHUB_REPO])
     }
     
-    func fetchRepositoryActivity(owner: String, name: String) async throws -> [RepositoryActivity] {
+    func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent] {
         try await Task.sleep(nanoseconds: 1_000_000_000)
-        return RepositoryActivity.MOCK_REPO_ACTIVITY
+        return RepositoryEvent.MOCK_REPOSITORY_EVENT
     }
 }

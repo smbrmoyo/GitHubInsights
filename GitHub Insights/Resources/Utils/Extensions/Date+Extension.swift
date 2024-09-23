@@ -35,7 +35,7 @@ extension Date {
         isoDateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         
         guard let date = isoDateFormatter.date(from: isoDateString) else {
-            return "0 minutes ago"
+            return "0 m ago"
         }
         
         let timeDifference = Date().timeIntervalSince(date)
@@ -46,10 +46,10 @@ extension Date {
         formatter.maximumUnitCount = 1
         
         if let formattedString = formatter.string(from: timeDifference) {
-            return "\(formattedString) ago"
+            return "\(formattedString.first!) ago"
         }
         
-        return "0 minutes ago"
+        return "0 m ago"
     }
 
 }

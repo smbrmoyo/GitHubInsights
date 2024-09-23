@@ -12,9 +12,10 @@ struct RepositoryRowView: View {
     
     var body: some View {
         NavigationLink {
-            RepositoryDetail(gitHubRepo: gitHubRepo,
-                             viewModel: RepositoryDetailViewModel(repository: HomeRepository.shared,
-                                                                  gitHubRepo: gitHubRepo))
+            RepositoryDetailView(gitHubRepo: gitHubRepo,
+                                 viewModel: RepositoryDetailViewModel(
+                                    repository: HomeRepository.shared,
+                                    gitHubRepo: gitHubRepo))
         } label: {
             VStack(alignment: .leading) {
                 

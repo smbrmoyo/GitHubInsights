@@ -16,11 +16,12 @@ protocol HomeRepositoryProtocol {
     func fetchTrendingRepositories(page: Int) async throws -> FetchGitHubRepoResponse
     
     /**
-     Retrieves the latest activity for a repository
+     Retrieves the latest events for a repository
      - parameter owner `String` owner of the repository
      - parameter name `String` name of the repository
+     - parameter page `Int` page to fetch
      */
-    func fetchRepositoryActivity(owner: String, name: String) async throws -> [RepositoryActivity]
+    func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent]
 }
 
 class HomeRepository: HomeRepositoryProtocol {
@@ -49,9 +50,18 @@ class HomeRepository: HomeRepositoryProtocol {
         }
     }
     
-    func fetchRepositoryActivity(owner: String, name: String) async throws -> [RepositoryActivity] {
+    func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent] {
+        guard let secret = SecretsManager.getToken() else {
+            throw NetworkError.unauthorized
+        }
+        
         do {
-            return try await makeRequest(from: Endpoint.activity(owner: owner, repo: name).urlString)
+            return try await makeRequest(from: Endpoint.events(owner: owner, repo: name).urlString,
+                                         parameters: ["per_page": "20",
+                                                      "page": String(page)],
+                                         headers: ["Authorization":"Bearer \(secret)",
+                                                   "X-GitHub-Api-Version": "2022-11-28",
+                                                   "Accept": "application/vnd.github+json"])
         } catch {
             print(error)
             throw error

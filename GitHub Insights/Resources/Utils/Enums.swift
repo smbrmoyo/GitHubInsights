@@ -24,7 +24,7 @@ enum Endpoint {
     private var baseUrl: String { "https://api.github.com" }
     
     case organizationRepositories(organizationName: String)
-    case activity(owner: String, repo: String)
+    case events(owner: String, repo: String)
     case user(username: String)
     case search
     
@@ -33,8 +33,8 @@ enum Endpoint {
         case .organizationRepositories(organizationName: let orgName):
             return baseUrl + "/orgs/\(orgName)/repos"
             
-        case .activity(owner: let owner, repo: let repo):
-            return baseUrl + "/repos/\(owner)/\(repo)/activity"
+        case .events(owner: let owner, repo: let repo):
+            return baseUrl + "/repos/\(owner)/\(repo)/events"
             
         case .user(username: let username):
             return baseUrl + "/users/\(username)"
@@ -167,5 +167,91 @@ enum RepositoryActivityType: String, Codable {
             return "rectangle.stack.fill.badge.plus"
         }
     }
+    
+    var title: String {
+        switch self {
+        case .push:
+            return "Push"
+        case .forcePush:
+            return "Force-Push"
+        case .branchCreation:
+            return "Branch Creation"
+        case .branchDeletion:
+            return "Branch Deletion"
+        case .prMerge:
+            return "PR-Merge"
+        case .mergeQueueMerge:
+            return "Merge-Queue-Merge"
+        }
+    }
 }
+
+enum RepositoryEventType: String, Codable {
+    case push = "PushEvent"
+    case pullRequest = "PullRequestEvent"
+    case pullRequestReview = "PullRequestReviewEvent"
+    case pullRequestReviewComment = "PullRequestReviewCommentEvent"
+    case issues = "IssuesEvent"
+    case issueComment = "IssueCommentEvent"
+    case create = "CreateEvent"
+    case delete = "DeleteEvent"
+    case fork = "ForkEvent"
+    case watch = "WatchEvent"
+    case release = "ReleaseEvent"
+    case member = "MemberEvent"
+    case gollum = "GollumEvent"
+    case publicEvent = "PublicEvent"
+    case commitComment = "CommitCommentEvent"
+    case branchProtectionRule = "BranchProtectionRuleEvent"
+    case deployment = "DeploymentEvent"
+    case deploymentStatus = "DeploymentStatusEvent"
+    case status = "StatusEvent"
+    case mergeQueueMerge = "MergeQueueMergeEvent"
+    
+    var systemImage: String {
+        switch self {
+        case .push:
+            return "arrow.up.right.circle.fill"
+        case .pullRequest:
+            return "arrow.merge"
+        case .pullRequestReview:
+            return "checkmark.seal.fill"
+        case .pullRequestReviewComment:
+            return "text.bubble"
+        case .issues:
+            return "exclamationmark.circle.fill"
+        case .issueComment:
+            return "text.bubble.fill"
+        case .create:
+            return "plus.circle.fill"
+        case .delete:
+            return "trash.fill"
+        case .fork:
+            return "tuningfork"
+        case .watch:
+            return "eye.fill"
+        case .release:
+            return "tag.fill"
+        case .member:
+            return "person.fill"
+        case .gollum:
+            return "book.fill"
+        case .publicEvent:
+            return "globe"
+        case .commitComment:
+            return "text.append"
+        case .branchProtectionRule:
+            return "lock.shield.fill"
+        case .deployment:
+            return "rocket.fill"
+        case .deploymentStatus:
+            return "checkmark.circle.fill"
+        case .status:
+            return "hourglass"
+        case .mergeQueueMerge:
+            return "arrow.triangle.merge"
+        }
+    }
+}
+
 
