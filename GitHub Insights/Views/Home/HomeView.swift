@@ -14,35 +14,29 @@ struct HomeView: View {
             VStack {
                 if !viewModel.repositories.isEmpty && viewModel.uiState == .idle {
                     RefreshableScrollView(items: viewModel.repositories,
-                                          loadMoreItems: { await viewModel.fetchRepositories() },
-                                          row: { repository in
+                                          canRefresh: $viewModel.canRefresh,
+                                          uiState: viewModel.uiState,
+                                          spacing: 4) {
+                        await viewModel.fetchRepositories()
+                    } row:  { repository in
                         RepositoryRowView(gitHubRepo: repository)
-                    })
+                    }
                 } else if viewModel.repositories.isEmpty && viewModel.uiState == .loading {
                     ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if viewModel.repositories.isEmpty && viewModel.uiState == .idle {
+                    Text("No Items yet.")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
             .task {
                 await viewModel.fetchRepositories()
             }
             .searchable(text: .constant(""))
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text("Trending")
-                            .font(.title)
-                        
-                        ZStack {
-                            Color.purple
-                            
-                            Image(systemName: "flame")
-                                .foregroundStyle(.white)
-                        }
-                        .frame(width: 30, height: 30)
-                        .clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                    }
-                }
+            .toolbarTitleDisplayMode(.inline)
+            .customToolbar("Trending") {
+                Image(systemName: "flame")
+                    .foregroundStyle(.white)
             }
         }
     }

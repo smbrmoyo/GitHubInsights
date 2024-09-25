@@ -17,4 +17,9 @@ class MockProfileRepository: ProfileRepositoryProtocol {
         try await Task.sleep(nanoseconds: 1_000_000_000)
         return User.MOCK_USER
     }
+    
+    func fetchUserRepositories(page: Int) async throws -> [GitHubRepo] {
+        try await Task.sleep(nanoseconds: 1_000_000_000)
+        return [GitHubRepo.MOCK_GITHUB_REPO]
+    }
 }

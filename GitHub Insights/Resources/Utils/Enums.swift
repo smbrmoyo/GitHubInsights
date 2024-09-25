@@ -24,6 +24,7 @@ enum Endpoint {
     private var baseUrl: String { "https://api.github.com" }
     
     case organizationRepositories(organizationName: String)
+    case userRepositories(username: String)
     case events(owner: String, repo: String)
     case user(username: String)
     case search
@@ -32,6 +33,9 @@ enum Endpoint {
         switch self {
         case .organizationRepositories(organizationName: let orgName):
             return baseUrl + "/orgs/\(orgName)/repos"
+            
+        case .userRepositories(username: let username):
+            return baseUrl + "/users/\(username)/repos"
             
         case .events(owner: let owner, repo: let repo):
             return baseUrl + "/repos/\(owner)/\(repo)/events"

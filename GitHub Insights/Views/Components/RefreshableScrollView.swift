@@ -8,38 +8,51 @@
 import SwiftUI
 
 struct RefreshableScrollView<T: Identifiable, Content: View>: View {
+    
+    // MARK: - Properties
+    
     var items: [T]
     @State private var isRefreshing = false
+    @Binding var canRefresh: Bool
+    var uiState: UIState
+    var spacing: CGFloat = 0
     var loadMoreItems: () async -> ()
-    var row: (T) -> Content
+    @ViewBuilder var row: (T) -> Content
+    
+    // MARK: - Body
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(items) { item in
-                    row(item)
-                }
-                
-                if isRefreshing {
-                    ProgressView()
-                        .padding()
-                } else {
-                    GeometryReader { reader -> Color in
-                        let minY = reader.frame(in: .global).minY
-                        let height = UIScreen.main.bounds.height
-                        
-                        if minY < height {
-                            DispatchQueue.main.async {
-                                refresh()
-                            }
+        VStack {
+            if !items.isEmpty && uiState == .idle {
+                ScrollView {
+                    LazyVStack(spacing: spacing) {
+                        ForEach(items) { item in
+                            row(item)
                         }
-                        return Color.clear
+                        
+                        if canRefresh {
+                            ProgressView()
+                                .padding()
+                                .onAppear {
+                                    refresh()
+                                }
+                        }
                     }
-                    .frame(height: 40)
                 }
+            } else if items.isEmpty && uiState == .loading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if items.isEmpty && uiState == .idle {
+                Text("No Events yet.")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
+        .task {
+            await loadMoreItems()
+        }
     }
+    
+    // MARK: - Funktionen
     
     private func refresh() {
         guard !isRefreshing else { return }
@@ -52,11 +65,10 @@ struct RefreshableScrollView<T: Identifiable, Content: View>: View {
     }
 }
 
-
-
-
 #Preview {
     RefreshableScrollView(items: [GitHubRepo.MOCK_GITHUB_REPO],
+                          canRefresh: .constant(false),
+                          uiState: .idle,
                           loadMoreItems: {},
                           row: { item in RepositoryRowView(gitHubRepo: item) })
 }

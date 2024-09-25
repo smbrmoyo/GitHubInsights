@@ -16,4 +16,27 @@ extension View {
         self
             .shadow(color: .darkShadow, radius: 4, x: 2, y: 2)
     }
+    
+    func customToolbar
+    <Icon: View, Content: ToolbarContent>(
+        _ title: String,
+        @ViewBuilder icon: @escaping () -> Icon,
+        @ToolbarContentBuilder content: @escaping () -> Content = { ToolbarItem {} }
+    ) -> some View {
+        self
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text(title)
+                            .font(.title)
+                        
+                        icon()
+                    }
+                }
+                
+                content()
+            }
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+    }
 }

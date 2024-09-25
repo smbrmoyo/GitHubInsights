@@ -25,7 +25,7 @@ class ProfileViewModel: ObservableObject {
     // MARK: - Functions
     
     @MainActor
-    func getUser() {
+    func getUser() async {
         Task {
             do {
                 uiState = .loading

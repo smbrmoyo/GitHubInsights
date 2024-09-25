@@ -20,12 +20,13 @@ struct RepositoryDetailView: View {
                 .padding(.horizontal)
             
             RefreshableScrollView(items: viewModel.repositoryEvents,
-                                  loadMoreItems: {await viewModel.fetchRepositoryEvents()}) { event in
+                                  canRefresh: $viewModel.canRefresh,
+                                  uiState: viewModel.uiState,
+                                  spacing: 4) { 
+                await viewModel.fetchRepositoryEvents()
+            } row: { event in
                 EventRowView(event: event)
             }
-        }
-        .task {
-            await viewModel.fetchRepositoryEvents()
         }
         .toolbar {
             ToolbarItem(placement: .principal) {

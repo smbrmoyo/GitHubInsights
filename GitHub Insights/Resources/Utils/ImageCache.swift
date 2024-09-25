@@ -27,14 +27,13 @@ final class ImageCache {
         
         do {
             try data.write(to: cachedImagePath)
-            print("Image cached at: \(cachedImagePath)")
         } catch {
             print("Failed to cache image: \(error)")
         }
         
         return image
     }
-
+    
     /// Helper function to get the local file path where the image will be cached
     static func getCachedImagePath(for urlString: String) -> URL {
         let fileName = urlString.components(separatedBy: "/").last ?? "profile_image"

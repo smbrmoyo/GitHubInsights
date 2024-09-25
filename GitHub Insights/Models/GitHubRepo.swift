@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GitHubRepo: Codable, Identifiable {
+struct GitHubRepo: Codable, Equatable, Identifiable {
     var id: Int = 0
     var name: String = ""
     var description: String? = ""

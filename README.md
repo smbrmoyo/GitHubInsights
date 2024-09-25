@@ -18,5 +18,4 @@ The user will have the option to sign out, essentially resetting the stored valu
 
 ## Steps:
 
-- [1/2] Build Repo Detail View
 - [ ] Add Filter to Trending Search

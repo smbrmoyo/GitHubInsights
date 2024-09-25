@@ -24,6 +24,8 @@
 		04BD91542C8C6F3800DE2A08 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 04BD91532C8C6F3700DE2A08 /* README.md */; };
 		04BD91582C8C6F8900DE2A08 /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD91572C8C6F8900DE2A08 /* PersistentStore.swift */; };
 		04C535A32CA209D800591CE7 /* RepositoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C535A22CA209D800591CE7 /* RepositoryEvent.swift */; };
+		04C535A62CA217C700591CE7 /* UserRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C535A52CA217C700591CE7 /* UserRepositoriesView.swift */; };
+		04C535A82CA217E700591CE7 /* UserRepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C535A72CA217E700591CE7 /* UserRepositoriesViewModel.swift */; };
 		04D130042C8D90E600EB0B29 /* GitHubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D130032C8D90E600EB0B29 /* GitHubRepo.swift */; };
 		04D130062C8D92E500EB0B29 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D130052C8D92E500EB0B29 /* User.swift */; };
 		04D130082C8D9B1B00EB0B29 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 04D130072C8D9B1B00EB0B29 /* .gitignore */; };
@@ -75,6 +77,8 @@
 		04BD91532C8C6F3700DE2A08 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		04BD91572C8C6F8900DE2A08 /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		04C535A22CA209D800591CE7 /* RepositoryEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryEvent.swift; sourceTree = "<group>"; };
+		04C535A52CA217C700591CE7 /* UserRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesView.swift; sourceTree = "<group>"; };
+		04C535A72CA217E700591CE7 /* UserRepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesViewModel.swift; sourceTree = "<group>"; };
 		04D130032C8D90E600EB0B29 /* GitHubRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepo.swift; sourceTree = "<group>"; };
 		04D130052C8D92E500EB0B29 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04D130072C8D9B1B00EB0B29 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		04BD91552C8C6F5400DE2A08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04C535A42CA217B700591CE7 /* UserRepos */,
 				04F5CAB02C9ED0F800FDE889 /* RepoDetail */,
 				040D34CA2C97432200EB31D6 /* Home */,
 				04EFB20A2C8F625700E2FCF0 /* MainTab */,
@@ -203,6 +208,15 @@
 				04C535A22CA209D800591CE7 /* RepositoryEvent.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		04C535A42CA217B700591CE7 /* UserRepos */ = {
+			isa = PBXGroup;
+			children = (
+				04C535A52CA217C700591CE7 /* UserRepositoriesView.swift */,
+				04C535A72CA217E700591CE7 /* UserRepositoriesViewModel.swift */,
+			);
+			path = UserRepos;
 			sourceTree = "<group>";
 		};
 		04D130092C8D9B4500EB0B29 /* Resources */ = {
@@ -422,9 +436,11 @@
 				04EFB2012C8F5FC700E2FCF0 /* ToastManager.swift in Sources */,
 				04EFB20C2C8F626600E2FCF0 /* MainTabView.swift in Sources */,
 				04F5CAB52C9EF74500FDE889 /* RepositoryHeaderView.swift in Sources */,
+				04C535A82CA217E700591CE7 /* UserRepositoriesViewModel.swift in Sources */,
 				040D34C92C973CA400EB31D6 /* ProfileNavigationRow.swift in Sources */,
 				04EFB1FA2C8F5A7B00E2FCF0 /* AuthView.swift in Sources */,
 				047E2D0F2C98F26800A73395 /* RepositoryRowView.swift in Sources */,
+				04C535A62CA217C700591CE7 /* UserRepositoriesView.swift in Sources */,
 				04EFB20E2C8F644C00E2FCF0 /* BaseTextField.swift in Sources */,
 				04D130132C8DA07800EB0B29 /* Enums.swift in Sources */,
 				04EFB2222C8F806600E2FCF0 /* ProfileViewLoaded.swift in Sources */,

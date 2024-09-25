@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepoOwner: Codable {
+struct RepoOwner: Codable, Equatable {
     let id: Int
     let login, avatarUrl, type, url: String
     

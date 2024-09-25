@@ -19,7 +19,7 @@ struct ProfileView: View {
                     ProfileViewLoaded(user: viewModel.user)
                 }
             }
-            .toolbar {
+            .customToolbar("Profile") {} content: {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         
@@ -36,8 +36,8 @@ struct ProfileView: View {
                     }
                 }
             }
-            .onAppear {
-                viewModel.getUser()
+            .task {
+                await viewModel.getUser()
             }
         }
     }

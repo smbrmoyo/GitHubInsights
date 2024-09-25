@@ -67,7 +67,7 @@ struct RepositoryHeaderView: View {
             
             Text("Last Commit: \(Date.timeAgoSinceDate(gitHubRepo.updatedAt))")
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 
