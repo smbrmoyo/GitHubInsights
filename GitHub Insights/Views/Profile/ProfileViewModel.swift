@@ -17,12 +17,6 @@ class ProfileViewModel: ObservableObject {
     @Published var user = User.EMPTY_USER
     @Published var uiState = UIState.idle
     @Published var showLogOutSheet = false
-    @Published var showShareSheet = false
-    var shareURL: URL? {
-        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String else { return nil }
-        
-        return URL(string: Endpoint.profile(username: username).urlString)
-    }
     
     // MARK: - Lifecycle
     init(repository: ProfileRepositoryProtocol) {

@@ -30,6 +30,10 @@ class HomeViewModel: ObservableObject {
     
     @MainActor
     func fetchRepositories() async {
+        guard let _ = UserDefaults.standard.string(forKey: "GITHUB_USERNAME") else {
+            return
+        }
+        
         do {
             uiState = repositories.isEmpty ?  .loading : .idle
             let result = try await repository.fetchTrendingRepositories(page: page)

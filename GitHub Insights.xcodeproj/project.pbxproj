@@ -20,7 +20,8 @@
 		044C665B2CA51E4E005019EB /* OrganizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C665A2CA51E4E005019EB /* OrganizationViewModel.swift */; };
 		044C665D2CA51E9F005019EB /* OrganizationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C665C2CA51E9F005019EB /* OrganizationsView.swift */; };
 		044C66602CA51F30005019EB /* OrganizationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C665F2CA51F30005019EB /* OrganizationRowView.swift */; };
-		044C66622CA52E7E005019EB /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C66612CA52E7E005019EB /* ShareSheet.swift */; };
+		044C66672CA55136005019EB /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C66662CA55136005019EB /* SplashScreen.swift */; };
+		044C66692CA5556A005019EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044C66682CA5556A005019EB /* LaunchScreen.storyboard */; };
 		047E2D0F2C98F26800A73395 /* RepositoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E2D0E2C98F26800A73395 /* RepositoryRowView.swift */; };
 		047E2D112C98F4A200A73395 /* RepoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E2D102C98F4A200A73395 /* RepoOwner.swift */; };
 		047E2D132C9907E300A73395 /* ViewOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E2D122C9907E300A73395 /* ViewOffsetKey.swift */; };
@@ -83,7 +84,8 @@
 		044C665A2CA51E4E005019EB /* OrganizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationViewModel.swift; sourceTree = "<group>"; };
 		044C665C2CA51E9F005019EB /* OrganizationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsView.swift; sourceTree = "<group>"; };
 		044C665F2CA51F30005019EB /* OrganizationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationRowView.swift; sourceTree = "<group>"; };
-		044C66612CA52E7E005019EB /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		044C66662CA55136005019EB /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		044C66682CA5556A005019EB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047E2D0E2C98F26800A73395 /* RepositoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRowView.swift; sourceTree = "<group>"; };
 		047E2D102C98F4A200A73395 /* RepoOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoOwner.swift; sourceTree = "<group>"; };
 		047E2D122C9907E300A73395 /* ViewOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOffsetKey.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		044C66652CA5512A005019EB /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				044C66662CA55136005019EB /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		047E2D0D2C98F22900A73395 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +235,7 @@
 		04BD91552C8C6F5400DE2A08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				044C66652CA5512A005019EB /* SplashScreen */,
 				044C66552CA51B6F005019EB /* UserOrganizations */,
 				04D08CA72CA46D2D004C1F5C /* UserStars */,
 				04C535A42CA217B700591CE7 /* UserRepos */,
@@ -315,7 +326,7 @@
 				04EFB20D2C8F644C00E2FCF0 /* BaseTextField.swift */,
 				04EFB21B2C8F7D4000E2FCF0 /* NetworkImageView.swift */,
 				047E2D142C99084900A73395 /* RefreshableScrollView.swift */,
-				044C66612CA52E7E005019EB /* ShareSheet.swift */,
+				044C66682CA5556A005019EB /* LaunchScreen.storyboard */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -469,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044C66692CA5556A005019EB /* LaunchScreen.storyboard in Resources */,
 				04D130082C8D9B1B00EB0B29 /* .gitignore in Resources */,
 				044C66522CA50A2E005019EB /* Repositories.json in Resources */,
 				044C66592CA51D83005019EB /* Organizations.json in Resources */,
@@ -518,7 +530,6 @@
 				04EFB1FE2C8F5F4D00E2FCF0 /* Toast.swift in Sources */,
 				04EFB21F2C8F7E8700E2FCF0 /* ImageCache.swift in Sources */,
 				04D1300F2C8D9C3700EB0B29 /* MakeRequest.swift in Sources */,
-				044C66622CA52E7E005019EB /* ShareSheet.swift in Sources */,
 				04D130062C8D92E500EB0B29 /* User.swift in Sources */,
 				04EFB21C2C8F7D4000E2FCF0 /* NetworkImageView.swift in Sources */,
 				04BD91582C8C6F8900DE2A08 /* PersistentStore.swift in Sources */,
@@ -526,6 +537,7 @@
 				047E2D112C98F4A200A73395 /* RepoOwner.swift in Sources */,
 				040D34D02C97459A00EB31D6 /* HomeRepository.swift in Sources */,
 				044C66572CA51BE4005019EB /* Organization.swift in Sources */,
+				044C66672CA55136005019EB /* SplashScreen.swift in Sources */,
 				04D130112C8D9FF300EB0B29 /* AuthRepository.swift in Sources */,
 				04EFB2142C8F776400E2FCF0 /* ProfileViewModel.swift in Sources */,
 				04EFB2172C8F780300E2FCF0 /* ProfileRepository.swift in Sources */,
@@ -675,11 +687,12 @@
 				DEVELOPMENT_TEAM = 27MXYDTP56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GitHub-Insights-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "GitHub Insights";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
@@ -711,11 +724,12 @@
 				DEVELOPMENT_TEAM = 27MXYDTP56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GitHub-Insights-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "GitHub Insights";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;

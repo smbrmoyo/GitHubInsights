@@ -4,7 +4,8 @@ The goal is to create an app that leverages GitHub's REST API in order to give i
 
 ## Steps:
 
-- [ ] Add Share Feature
+- [ ] Unit Testing
+- [ ] Fastlane
 
 ## Fixes:
 

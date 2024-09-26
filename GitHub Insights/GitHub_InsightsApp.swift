@@ -9,11 +9,26 @@ import SwiftUI
 
 @main
 struct GitHub_InsightsApp: App {
+    @StateObject var authViewModel = AuthViewModel(repository: AuthRepository.shared)
+    @StateObject private var toastManager = ToastManager.shared
     
     var body: some Scene {
         WindowGroup {
-            AuthView()
-                .environment(\.colorScheme, .dark)
+            VStack {
+                switch authViewModel.launchState {
+                case .launch:
+                    SplashScreen()
+                    
+                case .auth:
+                    AuthView()
+                    
+                case .session:
+                    MainTabView()
+                }
+            }
+            .environmentObject(authViewModel)
+            .environment(\.colorScheme, .dark)
+            .toast(toast: $toastManager.toast)
         }
     }
 }

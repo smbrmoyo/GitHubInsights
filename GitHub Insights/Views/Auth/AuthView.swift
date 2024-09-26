@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AuthView: View {
-    @StateObject var authViewModel = AuthViewModel(repository: AuthRepository.shared)
-    @StateObject private var toastManager = ToastManager.shared
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         ZStack {
@@ -42,15 +41,12 @@ struct AuthView: View {
                 
                 Spacer()
             }
-            .fullScreenCover(isPresented: $authViewModel.showMainView) {
-                MainTabView()
-                    .environmentObject(authViewModel)
-            }
-            .toast(toast: $toastManager.toast)
         }
     }
 }
 
 #Preview {
     AuthView()
+        .environmentObject(AuthViewModel(repository: AuthRepository.shared))
+        .environmentObject(ToastManager.shared)
 }

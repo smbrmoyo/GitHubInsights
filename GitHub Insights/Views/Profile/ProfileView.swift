@@ -27,21 +27,10 @@ struct ProfileView: View {
                         Image(systemName: "gear")
                     }
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        viewModel.showShareSheet = true
-                    } label: {
-                        Image(systemName: "square.and.arrow.up")
-                    }
-                }
             })
             .sheet(isPresented: $viewModel.showLogOutSheet) {
                 ProfileSheet()
-                    .presentationDetents([.large])
-            }
-            .sheet(isPresented: $viewModel.showShareSheet) {
-                ShareSheet(activityItems: [viewModel.shareURL as Any])
+                    .presentationDetents([.medium])
             }
             .task {
                 await viewModel.getUser()

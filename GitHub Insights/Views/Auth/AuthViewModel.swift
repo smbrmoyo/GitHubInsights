@@ -5,7 +5,7 @@
 //  Created by Brian Moyou on 09.09.24.
 //
 
-import Foundation
+import SwiftUI
 
 @MainActor
 class AuthViewModel: ObservableObject {
@@ -17,7 +17,7 @@ class AuthViewModel: ObservableObject {
     // MARK: - Properties
     
     @Published var username = ""
-    @Published var showMainView = false
+    @Published var launchState = LaunchState.launch
     
     // MARK: - Lifecycle
     
@@ -31,6 +31,7 @@ class AuthViewModel: ObservableObject {
     
     private func checkAuth() {
         guard let storedUsername = UserDefaults.standard.string(forKey: "GITHUB_USERNAME") else {
+            launchState = .auth
             return
         }
         
@@ -38,8 +39,9 @@ class AuthViewModel: ObservableObject {
             do {
                 let _ = try await repository.authenticate(username: storedUsername)
                 
-                showMainView = true
+                launchState = .session
             } catch {
+                launchState = .auth
                 ToastManager.shared.createToast(Toast(style: .error, message: "An unknown error occurred."))
             }
         }
@@ -50,7 +52,7 @@ class AuthViewModel: ObservableObject {
             do {
                 let result = try await repository.authenticate(username: username)
                 if result != User.EMPTY_USER {
-                    showMainView = true
+                        launchState = .session
                 }
             } catch {
                 ToastManager.shared.createToast(Toast(style: .error, message: "No matching username found."))
@@ -60,6 +62,6 @@ class AuthViewModel: ObservableObject {
     
     func signOut() {
         repository.signOut()
-        showMainView = false
+            launchState = .auth
     }
 }

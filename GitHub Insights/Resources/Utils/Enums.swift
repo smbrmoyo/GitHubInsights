@@ -82,6 +82,10 @@ enum Tab {
     case home, profile
 }
 
+enum LaunchState {
+    case launch, auth, session
+}
+
 enum Regex: String {
     case email = "^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,49}$"
     case fullName = "^(?=.{3,20}$)(?!.*([\\s])\\1{2})[\\w\\s]+$"
