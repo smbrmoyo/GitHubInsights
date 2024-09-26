@@ -15,6 +15,11 @@ struct RepositoryDetailView: View {
         VStack(alignment: .leading) {
             RepositoryHeaderView(gitHubRepo: gitHubRepo)
             
+            HStack{}
+                .frame(height: 0.5)
+                .frame(maxWidth: .infinity)
+                .background(Color.background)
+            
             Text("Activity")
                 .font(.title)
                 .padding(.horizontal)
@@ -22,27 +27,23 @@ struct RepositoryDetailView: View {
             RefreshableScrollView(items: viewModel.repositoryEvents,
                                   canRefresh: $viewModel.canRefresh,
                                   uiState: viewModel.uiState,
-                                  spacing: 4) { 
+                                  spacing: 4,
+                                  emptyText: "No Events found.") {
                 await viewModel.fetchRepositoryEvents()
             } row: { event in
                 EventRowView(event: event)
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Text(gitHubRepo.name)
-                        .font(.title)
-                }
-            }
-        }
+        .toolbar(gitHubRepo.name)
     }
 }
 
 #Preview {
-    RepositoryDetailView(gitHubRepo: GitHubRepo.MOCK_GITHUB_REPO,
-                         viewModel: RepositoryDetailViewModel(
-                            repository: MockHomeRepository.shared,
-                            gitHubRepo: GitHubRepo.MOCK_GITHUB_REPO
-                         ))
+    NavigationStack {
+        RepositoryDetailView(gitHubRepo: GitHubRepo.MOCK_GITHUB_REPO,
+                             viewModel: RepositoryDetailViewModel(
+                                repository: MockHomeRepository.shared,
+                                gitHubRepo: GitHubRepo.MOCK_GITHUB_REPO
+                             ))
+    }
 }

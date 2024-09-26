@@ -27,6 +27,7 @@ enum Endpoint {
     case userRepositories(username: String)
     case events(owner: String, repo: String)
     case user(username: String)
+    case profile(username: String)
     case search
     
     var urlString: String {
@@ -42,6 +43,9 @@ enum Endpoint {
             
         case .user(username: let username):
             return baseUrl + "/users/\(username)"
+            
+        case .profile(username: let username):
+            return "https://github.com/\(username)"
             
         case .search:
             return baseUrl + "/search/repositories"

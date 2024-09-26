@@ -1,13 +1,13 @@
 //
-//  UserRepositoriesViewModel.swift
+//  OrganizationViewModel.swift
 //  GitHub Insights
 //
-//  Created by Brian Moyou on 23.09.24.
+//  Created by Brian Moyou on 26.09.24.
 //
 
 import Foundation
 
-class UserRepositoriesViewModel: ObservableObject {
+class OrganizationsViewModel: ObservableObject {
     
     // MARK: - Dependencies
     
@@ -15,7 +15,7 @@ class UserRepositoriesViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    @Published var repositories: [GitHubRepo] = []
+    @Published var organizations: [Organization] = []
     @Published var uiState = UIState.idle
     @Published var isRefreshing = false
     @Published var canRefresh = true
@@ -30,10 +30,10 @@ class UserRepositoriesViewModel: ObservableObject {
     // MARK: - Functions
     
     @MainActor
-    func fetchUserRepositories() async {
+    func fetchOrganizations() async {
         do {
-            uiState = repositories.isEmpty ?  .loading : .idle
-            let result = try await repository.fetchUserRepositories(page: page)
+            uiState = organizations.isEmpty ?  .loading : .idle
+            let result = try await repository.fetchOrganizations(page: page)
             
             guard !result.isEmpty else {
                 uiState = .idle
@@ -41,12 +41,12 @@ class UserRepositoriesViewModel: ObservableObject {
                 return
             }
             
-            repositories.append(contentsOf: result)
+            organizations.append(contentsOf: result)
             page += 1
             uiState = .idle
         } catch {
             uiState = .idle
-            ToastManager.shared.createToast(Toast(style: .error, message: "No repositories found."))
+            ToastManager.shared.createToast(Toast(style: .error, message: "No Organizations found."))
         }
     }
 }

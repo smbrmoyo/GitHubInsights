@@ -13,7 +13,9 @@ struct RepositoryHeaderView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                NetworkImageView(imageURL: gitHubRepo.owner.avatarUrl, size: 30, cornerRadius: 15)
+                NetworkImageView(imageURL: gitHubRepo.owner.avatarUrl,
+                                 size: 30,
+                                 cornerRadius: 15)
                 
                 Text(gitHubRepo.owner.login)
                     .font(.title3)
@@ -25,6 +27,8 @@ struct RepositoryHeaderView: View {
             HStack {
                 Text(gitHubRepo.name)
                     .font(.title)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                 
                 HStack {
                     Text(gitHubRepo.visibility)
@@ -40,12 +44,13 @@ struct RepositoryHeaderView: View {
                 Text(description)
                     .font(.title3)
                     .padding(.vertical, 2)
+                    .lineLimit(3)
+                    .truncationMode(.tail)
             }
             
             HStack(spacing: 4) {
                 Image(systemName: "star")
                     .foregroundStyle(.gray)
-                
                 
                 Text("\(gitHubRepo.stargazersCount)")
                 Text("stars")
@@ -53,7 +58,6 @@ struct RepositoryHeaderView: View {
                 
                 Text("•")
                     .foregroundStyle(.gray)
-                    .padding(.horizontal)
                 
                 Image(systemName: "tuningfork")
                     .foregroundStyle(.gray)
@@ -63,9 +67,10 @@ struct RepositoryHeaderView: View {
                     .foregroundStyle(.gray)
                 
             }
-            .padding(.vertical, 1)
+            .padding(.vertical, 2)
             
-            Text("Last Commit: \(Date.timeAgoSinceDate(gitHubRepo.updatedAt))")
+            Text("Last Commit: \(Date.timeAgoSinceDate(gitHubRepo.pushedAt))")
+                .padding(.top, 2)
         }
         .padding(.horizontal)
     }

@@ -42,7 +42,11 @@ func makeRequest<T: Codable>(
         }
     }
     
-    let (data, response) = try await URLSession.shared.data(for: request)
+    let config = URLSessionConfiguration.default
+    config.timeoutIntervalForRequest = 5.0
+    let session = URLSession(configuration: config)
+    
+    let (data, response) = try await session.data(for: request)
     
     guard let  statusCode = (response as? HTTPURLResponse)?.statusCode else {
         throw NetworkError.unknownError

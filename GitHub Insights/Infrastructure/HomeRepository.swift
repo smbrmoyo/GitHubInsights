@@ -13,7 +13,7 @@ protocol HomeRepositoryProtocol {
      - parameter page `Int` page to fetch
      - returns The fetched `[GitHubRepo]`.
      */
-    func fetchTrendingRepositories(page: Int) async throws -> FetchGitHubRepoResponse
+    func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo]
     
     /**
      Retrieves the latest events for a repository
@@ -31,19 +31,23 @@ class HomeRepository: HomeRepositoryProtocol {
     
     private init() {}
     
-    func fetchTrendingRepositories(page: Int) async throws -> FetchGitHubRepoResponse {
+    func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo] {
         guard let secret = SecretsManager.getToken() else {
             throw NetworkError.unauthorized
         }
         
         do {
-            return try await makeRequest(from: Endpoint.search.urlString,
-                                         parameters: ["sort": "stars",
-                                                      "order": "desc",
-                                                      "q": "created:>\(Date.getDateForLastWeek())",
-                                                      "per_page": "20",
-                                                      "page": String(page)],
-                                         headers: ["Authorization":"Bearer \(secret)"])
+            let result: FetchGitHubRepoResponse = try await makeRequest(from: Endpoint.search.urlString,
+                                                                        parameters: ["sort": "stars",
+                                                                                     "order": "desc",
+                                                                                     "q": "created:>\(Date.getDateForLastWeek())",
+                                                                                     "per_page": "20",
+                                                                                     "page": String(page)],
+                                                                        headers: ["Authorization":"Bearer \(secret)",
+                                                                                  "X-GitHub-Api-Version": "2022-11-28",
+                                                                                  "Accept": "application/vnd.github+json"])
+            
+            return result.items
         } catch {
             print(error)
             throw error

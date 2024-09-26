@@ -11,7 +11,7 @@ struct User: Codable, Equatable {
     let id, followers, following, publicRepos: Int
     let login, name, avatarUrl, twitterUsername, location, company, blog, bio: String
     
-    static let DEFAUL_TUSER: User = .init(id: 0,
+    static let EMPTY_USER: User = .init(id: 0,
                                           followers: 0,
                                           following: 0,
                                           publicRepos: 0,

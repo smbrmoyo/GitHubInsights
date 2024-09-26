@@ -19,10 +19,10 @@ struct ProfileView: View {
                     ProfileViewLoaded(user: viewModel.user)
                 }
             }
-            .customToolbar("Profile") {} content: {
+            .toolbar("Profile", content:  {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        viewModel.showLogOutSheet = true
                     } label: {
                         Image(systemName: "gear")
                     }
@@ -30,11 +30,18 @@ struct ProfileView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        viewModel.showShareSheet = true
                     } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
                 }
+            })
+            .sheet(isPresented: $viewModel.showLogOutSheet) {
+                ProfileSheet()
+                    .presentationDetents([.large])
+            }
+            .sheet(isPresented: $viewModel.showShareSheet) {
+                ShareSheet(activityItems: [viewModel.shareURL as Any])
             }
             .task {
                 await viewModel.getUser()

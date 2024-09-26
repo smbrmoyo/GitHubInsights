@@ -12,7 +12,7 @@ struct ProfileHeader: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue, .green, .yellow, .orange]), startPoint: .leading, endPoint: .trailing)
-                .frame(width: 300, height: 100)
+                .frame(width: 350, height: 200)
                 .opacity(0.2)
             
             VStack(alignment: .leading) {
@@ -34,6 +34,8 @@ struct ProfileHeader: View {
                 Text(user.bio)
                     .font(.title3)
                     .padding(.vertical)
+                    .lineLimit(3)
+                    .truncationMode(.tail)
                 
                 HStack {
                     if !user.company.isEmpty {

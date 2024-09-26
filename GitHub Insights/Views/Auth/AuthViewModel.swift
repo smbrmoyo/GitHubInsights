@@ -49,7 +49,7 @@ class AuthViewModel: ObservableObject {
         Task {
             do {
                 let result = try await repository.authenticate(username: username)
-                if result != User.DEFAUL_TUSER {
+                if result != User.EMPTY_USER {
                     showMainView = true
                 }
             } catch {

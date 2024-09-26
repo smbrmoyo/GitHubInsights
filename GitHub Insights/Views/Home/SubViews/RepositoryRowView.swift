@@ -35,6 +35,8 @@ struct RepositoryRowView: View {
                 
                 Text(gitHubRepo.name)
                     .font(.title2)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                 
                 if ((gitHubRepo.description?.isEmpty) == nil) {
                     Text(gitHubRepo.description ?? "")

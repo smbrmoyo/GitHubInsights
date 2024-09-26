@@ -32,24 +32,15 @@ extension Date {
     static func timeAgoSinceDate(_ isoDateString: String) -> String {
         
         let isoDateFormatter = ISO8601DateFormatter()
-        isoDateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         
         guard let date = isoDateFormatter.date(from: isoDateString) else {
             return "0 m ago"
         }
+                
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
         
-        let timeDifference = Date().timeIntervalSince(date)
-        
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.day, .hour, .minute]
-        formatter.maximumUnitCount = 1
-        
-        if let formattedString = formatter.string(from: timeDifference) {
-            return "\(formattedString.first!) ago"
-        }
-        
-        return "0 m ago"
+        return formatter.localizedString(for: date, relativeTo: Date())
     }
 
 }

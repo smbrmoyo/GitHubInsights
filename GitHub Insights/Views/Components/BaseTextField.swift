@@ -63,10 +63,11 @@ struct BaseTextField : View {
             
             TextFieldName(name: textFieldName)
             
-            TextField(UUID().uuidString, text: $text, prompt: Text(placeholder), axis: .vertical)
+            TextField(UUID().uuidString, text: $text, prompt: Text(placeholder).foregroundStyle(.gray), axis: .vertical)
                 .onChange(of: text) { _, newValue in
                     self.text = String(newValue.prefix(length))
                 }
+                .foregroundStyle(.gray)
                 .lineLimit(3)
                 .keyboardType(keyboardType)
                 .fontWeight(.regular)

@@ -14,13 +14,55 @@ class MockHomeRepository: HomeRepositoryProtocol {
     
     private init() {}
     
-    func fetchTrendingRepositories(page: Int) async throws -> FetchGitHubRepoResponse {
-        try await Task.sleep(nanoseconds: 1_000_000_000)
-        return FetchGitHubRepoResponse(items: [GitHubRepo.MOCK_GITHUB_REPO])
+    func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo] {
+        try await Task.sleep(nanoseconds: 500_000_000)
+        
+        guard let url = Bundle.main.url(forResource: "Repositories", withExtension: "json") else {
+            throw NetworkError.custom(message: "JSON file not found")
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let allRepos = try decoder.decode([GitHubRepo].self, from: data)
+            
+            let startIndex = (page - 1) * 10
+            let endIndex = min(startIndex + 10, allRepos.count)
+            
+            guard startIndex < allRepos.count else {
+                return []
+            }
+            
+            return Array(allRepos[startIndex..<endIndex])
+        } catch {
+            print(error)
+            throw error
+        }
     }
     
     func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent] {
-        try await Task.sleep(nanoseconds: 1_000_000_000)
-        return RepositoryEvent.MOCK_REPOSITORY_EVENT
+        try await Task.sleep(nanoseconds: 500_000_000)
+        
+        guard let url = Bundle.main.url(forResource: "Events", withExtension: "json") else {
+            throw NetworkError.custom(message: "JSON file not found")
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let allRepos = try decoder.decode([RepositoryEvent].self, from: data)
+            
+            let startIndex = (page - 1) * 10
+            let endIndex = min(startIndex + 10, allRepos.count)
+            
+            guard startIndex < allRepos.count else {
+                return []
+            }
+            
+            return Array(allRepos[startIndex..<endIndex])
+        } catch {
+            print(error)
+            throw error
+        }
     }
 }

@@ -9,34 +9,28 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel(repository: HomeRepository.shared)
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                if !viewModel.repositories.isEmpty && viewModel.uiState == .idle {
-                    RefreshableScrollView(items: viewModel.repositories,
-                                          canRefresh: $viewModel.canRefresh,
-                                          uiState: viewModel.uiState,
-                                          spacing: 4) {
-                        await viewModel.fetchRepositories()
-                    } row:  { repository in
-                        RepositoryRowView(gitHubRepo: repository)
-                    }
-                } else if viewModel.repositories.isEmpty && viewModel.uiState == .loading {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if viewModel.repositories.isEmpty && viewModel.uiState == .idle {
-                    Text("No Items yet.")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-            }
-            .task {
+            RefreshableScrollView(items: viewModel.repositories,
+                                  canRefresh: $viewModel.canRefresh,
+                                  uiState: viewModel.uiState,
+                                  spacing: 4,
+                                  emptyText: "No repositories found.") {
                 await viewModel.fetchRepositories()
+            } row:  { repository in
+                RepositoryRowView(gitHubRepo: repository)
             }
-            .searchable(text: .constant(""))
-            .toolbarTitleDisplayMode(.inline)
-            .customToolbar("Trending") {
-                Image(systemName: "flame")
-                    .foregroundStyle(.white)
+            .toolbar("Trending") {
+                ZStack {
+                    Color.purple
+                    
+                    Image(systemName: "flame")
+                        .foregroundStyle(.white)
+                }
+                .frame(width: 30, height: 30)
+                .clipped()
+                .clipShape(RoundedRectangle(cornerRadius: 5))
             }
         }
     }

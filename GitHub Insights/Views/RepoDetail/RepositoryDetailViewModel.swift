@@ -38,7 +38,7 @@ class RepositoryDetailViewModel: ObservableObject {
         guard canRefresh else {
             return
         }
-        
+
         do {
             uiState = repositoryEvents.isEmpty ?  .loading : .idle
             let result = try await repository.fetchRepositoryEvents(owner: owner, name: name, page: page)
@@ -47,6 +47,7 @@ class RepositoryDetailViewModel: ObservableObject {
             }
             
             guard !filteredResult.isEmpty else {
+                uiState = .idle
                 canRefresh = false
                 return
             }

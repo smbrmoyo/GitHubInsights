@@ -19,6 +19,17 @@ protocol ProfileRepositoryProtocol {
      - parameter page `Int` page to fetch
      */
     func fetchUserRepositories(page: Int) async throws -> [GitHubRepo]
+    
+    /**
+     Retrieves the repositories starred by a user
+     - parameter page `Int` page to fetch
+     */
+    func fetchStarredRepositories(page: Int) async throws -> [GitHubRepo]
+    
+    /**
+     Retrieves the organization memberships of a user
+     */
+    func fetchOrganizations(page: Int) async throws -> [Organization]
 }
 
 class ProfileRepository: ProfileRepositoryProtocol {
@@ -29,11 +40,20 @@ class ProfileRepository: ProfileRepositoryProtocol {
     private init() {}
     
     func getUser() async throws -> User {
-        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String else {
+        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let secret = SecretsManager.getToken() else {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
-        return try await makeRequest(from: Endpoint.user(username: username).urlString)
+        do {
+            return try await makeRequest(from: Endpoint.user(username: username).urlString,
+                                         headers: ["Authorization":"Bearer \(secret)",
+                                                   "X-GitHub-Api-Version": "2022-11-28",
+                                                   "Accept": "application/vnd.github+json"])
+        } catch {
+            print(error)
+            throw error
+        }
     }
     
     func fetchUserRepositories(page: Int) async throws -> [GitHubRepo] {
@@ -42,12 +62,59 @@ class ProfileRepository: ProfileRepositoryProtocol {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
-        return try await makeRequest(from: Endpoint.userRepositories(username: username).urlString,
-                                     parameters: ["type": "all",
-                                                  "sort": "updated",
-                                                  "direction": "desc",
-                                                  "per_page": "10",
-                                                  "page": String(page)],
-                                     headers: ["Authorization":"Bearer \(secret)"])
+        do {
+            return try await makeRequest(from: Endpoint.userRepositories(username: username).urlString,
+                                         parameters: ["type": "all",
+                                                      "sort": "pushed",
+                                                      "direction": "desc",
+                                                      "per_page": "10",
+                                                      "page": String(page)],
+                                         headers: ["Authorization":"Bearer \(secret)",
+                                                   "X-GitHub-Api-Version": "2022-11-28",
+                                                   "Accept": "application/vnd.github+json"])
+        } catch {
+            print(error)
+            throw error
+        }
+    }
+    
+    func fetchStarredRepositories(page: Int) async throws -> [GitHubRepo] {
+        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let secret = SecretsManager.getToken() else {
+            throw NetworkError.custom(message: "No user found. Please authenticate.")
+        }
+        
+        do {
+            return try await makeRequest(from: Endpoint.user(username: username).urlString + "/starred",
+                                         parameters: ["sort": "created",
+                                                      "direction": "desc",
+                                                      "per_page": "10",
+                                                      "page": String(page)],
+                                         headers: ["Authorization":"Bearer \(secret)",
+                                                   "X-GitHub-Api-Version": "2022-11-28",
+                                                   "Accept": "application/vnd.github+json"])
+        } catch {
+            print(error)
+            throw error
+        }
+    }
+    
+    func fetchOrganizations(page: Int) async throws -> [Organization] {
+        guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let secret = SecretsManager.getToken() else {
+            throw NetworkError.custom(message: "No user found. Please authenticate.")
+        }
+        
+        do {
+            return try await makeRequest(from: Endpoint.user(username: username).urlString + "/orgs",
+                                         parameters: ["per_page": "10",
+                                                      "page": String(page)],
+                                         headers: ["Authorization":"Bearer \(secret)",
+                                                   "X-GitHub-Api-Version": "2022-11-28",
+                                                   "Accept": "application/vnd.github+json"])
+        } catch {
+            print(error)
+            throw error
+        }
     }
 }

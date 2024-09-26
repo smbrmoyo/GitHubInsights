@@ -17,7 +17,7 @@ struct GitHubRepo: Codable, Equatable, Identifiable {
     var watchers: Int = 0
     var size: Int = 0
     var owner: RepoOwner = .DEFAULT_REPO_OWNER
-    var updatedAt: String = ""
+    var pushedAt: String = ""
     var visibility: String = ""
     
     static let MOCK_GITHUB_REPO = GitHubRepo(id: 123,
@@ -29,7 +29,7 @@ struct GitHubRepo: Codable, Equatable, Identifiable {
                                              watchers: 1,
                                              size: 200,
                                              owner: RepoOwner.MOCK_REPO_OWNER,
-                                             updatedAt: Date.now.ISO8601Format(),
+                                             pushedAt: Date.now.ISO8601Format(),
                                              visibility: "private")
 }
 

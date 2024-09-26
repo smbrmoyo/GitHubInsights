@@ -64,5 +64,5 @@ struct ProfileNavigationRow<Content: View>: View {
     ProfileNavigationRow(title: "Public Repositories", icon: "book", background: .gray, number: "17", destination: EmptyView())
 }
 #Preview {
-    ProfileNavigationRow(title: "Public Repositories", icon: "book", background: .gray, number: "", destination: EmptyView())
+    ProfileNavigationRow(title: "Starred", icon: "star", background: .gray, number: "", destination: EmptyView())
 }

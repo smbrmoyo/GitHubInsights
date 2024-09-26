@@ -16,6 +16,7 @@ struct RefreshableScrollView<T: Identifiable, Content: View>: View {
     @Binding var canRefresh: Bool
     var uiState: UIState
     var spacing: CGFloat = 0
+    var emptyText: String = ""
     var loadMoreItems: () async -> ()
     @ViewBuilder var row: (T) -> Content
     
@@ -43,7 +44,7 @@ struct RefreshableScrollView<T: Identifiable, Content: View>: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if items.isEmpty && uiState == .idle {
-                Text("No Events yet.")
+                Text(emptyText)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
