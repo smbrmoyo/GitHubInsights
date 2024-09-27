@@ -41,6 +41,7 @@ final class HomeViewModelTests: XCTestCase {
     func testFetchRepositoriesSuccess() async {
         // Given
         UserDefaults.standard.setValue("testUser", forKey: "GITHUB_USERNAME")
+        let 
         
         // When
         await sut.fetchRepositories()
@@ -48,6 +49,8 @@ final class HomeViewModelTests: XCTestCase {
         // Then
         XCTAssertNotEqual(sut.repositories.count, 0)
         XCTAssertEqual(sut.repositories.count, 10)
+        XCTAssertEqual(sut.uiState, .idle)
+        XCTAssertTrue(sut.canRefresh)
     }
 
 }

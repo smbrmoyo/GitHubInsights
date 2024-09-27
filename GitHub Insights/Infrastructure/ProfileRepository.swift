@@ -10,25 +10,34 @@ import Foundation
 protocol ProfileRepositoryProtocol {
     /**
      Retrieves the current `User` from GitHub based on the stored username in UserDefaults.
-     - returns The fetched `User`.
+     - Returns: The fetched `User`.
      */
     func getUser() async throws -> User
     
     /**
-     Retrieves the repositories of a user
-     - parameter page `Int` page to fetch
+     Retrieves the repositories of a user.
+     - Parameters:
+        - page: `Int` page to fetch.
+     - Returns: The retrieved Array of `GitHubRepo` for the user.
+     - Throws: Any `NetworkError` encountered during the request.
      */
     func fetchUserRepositories(page: Int) async throws -> [GitHubRepo]
     
     /**
-     Retrieves the repositories starred by a user
-     - parameter page `Int` page to fetch
+     Retrieves the repositories starred by a user.
+     - Parameters:
+        - page: `Int` page to fetch.
+     - Returns: The retrieved starred Array of `GitHubRepo`.
+     - Throws: Any `NetworkError` encountered during the request.
      */
     func fetchStarredRepositories(page: Int) async throws -> [GitHubRepo]
     
     /**
-     Retrieves the organization memberships of a user
-     - parameter page `Int` page to fetch
+     Retrieves the organization memberships of a user.
+     - Parameters:
+        - page: `Int` page to fetch.
+     - Returns: The retrieved Array of  `Organization` for the user.
+     - Throws: Any `NetworkError` encountered during the request.
      */
     func fetchOrganizations(page: Int) async throws -> [Organization]
 }

@@ -9,17 +9,22 @@ import Foundation
 
 protocol HomeRepositoryProtocol {
     /**
-     Retrieves the trending repositories of the week
-     - parameter page `Int` page to fetch
-     - returns The fetched `[GitHubRepo]`.
+     Retrieves the trending repositories of the week.
+     - Parameters:
+        - page: `Int` page to fetch.
+     - Returns: The retrieved Array of trending `GitHubRepo`.
+     - Throws: Any `NetworkError` encountered during the request.
      */
     func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo]
     
     /**
-     Retrieves the latest events for a repository
-     - parameter owner `String` owner of the repository
-     - parameter name `String` name of the repository
-     - parameter page `Int` page to fetch
+     Retrieves the latest events for a repository.
+     - Parameters:
+        - page: `Int` page to fetch.
+        - owner `String` owner of the repository.
+        - name `String` name of the repository.
+     - Returns: The retrieved Array of `RepositoryEvent` for the Repository.
+     - Throws: Any `NetworkError` encountered during the request.
      */
     func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent]
     
