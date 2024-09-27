@@ -21,16 +21,13 @@ final class MockHomeRepository: HomeRepositoryProtocol {
             throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
         }
         
-        try await Task.sleep(nanoseconds: 500_000_000)
-        
-        guard let url = Bundle.main.url(forResource: "Repositories", withExtension: "json") else {
-            throw NetworkError.custom(message: "JSON file not found")
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let _ = SecretsManager.shared.getToken() else {
+            throw NetworkError.unauthorized
         }
+        
         do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let allRepos = try decoder.decode([GitHubRepo].self, from: data)
+            let allRepos: [GitHubRepo] = try FileManager.loadJson(fileName: "Repositories")
             
             let startIndex = (page - 1) * 10
             let endIndex = min(startIndex + 10, allRepos.count)
@@ -39,6 +36,8 @@ final class MockHomeRepository: HomeRepositoryProtocol {
                 return []
             }
             
+            try await Task.sleep(nanoseconds: 500_000_000)
+
             return Array(allRepos[startIndex..<endIndex])
         } catch {
             print(error)
@@ -51,25 +50,24 @@ final class MockHomeRepository: HomeRepositoryProtocol {
             throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
         }
         
-        try await Task.sleep(nanoseconds: 500_000_000)
-        
-        guard let url = Bundle.main.url(forResource: "Events", withExtension: "json") else {
-            throw NetworkError.custom(message: "JSON file not found")
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let _ = SecretsManager.shared.getToken() else {
+            throw NetworkError.unauthorized
         }
+                
         do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let allRepos = try decoder.decode([RepositoryEvent].self, from: data)
+            let allEvents: [RepositoryEvent] = try FileManager.loadJson(fileName: "Events")
             
             let startIndex = (page - 1) * 10
-            let endIndex = min(startIndex + 10, allRepos.count)
+            let endIndex = min(startIndex + 10, allEvents.count)
             
-            guard startIndex < allRepos.count else {
+            guard startIndex < allEvents.count else {
                 return []
             }
             
-            return Array(allRepos[startIndex..<endIndex])
+            try await Task.sleep(nanoseconds: 500_000_000)
+
+            return Array(allEvents[startIndex..<endIndex])
         } catch {
             print(error)
             throw error

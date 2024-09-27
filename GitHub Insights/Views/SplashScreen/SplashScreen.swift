@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         ZStack {
             Color.black
@@ -18,6 +20,9 @@ struct SplashScreen: View {
                 .frame(width: 100, height: 100)
                 .clipped()
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
+        .task {
+            await authViewModel.checkAuth()
         }
     }
 }

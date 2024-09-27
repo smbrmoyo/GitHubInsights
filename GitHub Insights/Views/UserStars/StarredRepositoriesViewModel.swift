@@ -19,7 +19,7 @@ final class StarredRepositoriesViewModel: ObservableObject {
     @Published var uiState = UIState.idle
     @Published var isRefreshing = false
     @Published var canRefresh = true
-    private var page = 1
+    var page = 1
     
     // MARK: - Lifecycle
     
@@ -46,6 +46,7 @@ final class StarredRepositoriesViewModel: ObservableObject {
             uiState = .idle
         } catch {
             uiState = .idle
+            canRefresh = false
             ToastManager.shared.createToast(Toast(style: .error, message: "No Starred Repositories found."))
         }
     }

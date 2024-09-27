@@ -52,7 +52,7 @@ final class ProfileRepository: ProfileRepositoryProtocol {
     func getUser() async throws -> User {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
               let secret = SecretsManager.shared.getToken() else {
-            throw NetworkError.custom(message: "No user found. Please authenticate.")
+            throw NetworkError.unauthorized
         }
         
         do {
@@ -69,7 +69,7 @@ final class ProfileRepository: ProfileRepositoryProtocol {
     func fetchUserRepositories(page: Int) async throws -> [GitHubRepo] {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
               let secret = SecretsManager.shared.getToken() else {
-            throw NetworkError.custom(message: "No user found. Please authenticate.")
+            throw NetworkError.unauthorized
         }
         
         do {
@@ -91,7 +91,7 @@ final class ProfileRepository: ProfileRepositoryProtocol {
     func fetchStarredRepositories(page: Int) async throws -> [GitHubRepo] {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
               let secret = SecretsManager.shared.getToken() else {
-            throw NetworkError.custom(message: "No user found. Please authenticate.")
+            throw NetworkError.unauthorized
         }
         
         do {
@@ -112,7 +112,7 @@ final class ProfileRepository: ProfileRepositoryProtocol {
     func fetchOrganizations(page: Int) async throws -> [Organization] {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
               let secret = SecretsManager.shared.getToken() else {
-            throw NetworkError.custom(message: "No user found. Please authenticate.")
+            throw NetworkError.unauthorized
         }
         
         do {

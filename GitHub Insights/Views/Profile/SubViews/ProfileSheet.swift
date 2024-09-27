@@ -17,6 +17,7 @@ struct ProfileSheet: View {
             }
             .buttonStyle(.borderedProminent)
         }
+        .presentationDetents([.medium])
     }
 }
 

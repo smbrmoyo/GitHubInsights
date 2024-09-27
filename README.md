@@ -13,5 +13,5 @@ The goal is to create an app that leverages GitHub's REST API in order to give i
 
 ## Improvements:
 
-- [ ] Make SplashScreen last longer
-
+- [x] Make SplashScreen last longer
+- [ ] Add Handle to Profile Sheet. And Cancel button (X)

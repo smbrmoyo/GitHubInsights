@@ -11,7 +11,7 @@ protocol HomeRepositoryProtocol {
     /**
      Retrieves the trending repositories of the week.
      - Parameters:
-        - page: `Int` page to fetch.
+     - page: `Int` page to fetch.
      - Returns: The retrieved Array of trending `GitHubRepo`.
      - Throws: Any `NetworkError` encountered during the request.
      */
@@ -20,9 +20,9 @@ protocol HomeRepositoryProtocol {
     /**
      Retrieves the latest events for a repository.
      - Parameters:
-        - page: `Int` page to fetch.
-        - owner `String` owner of the repository.
-        - name `String` name of the repository.
+     - page: `Int` page to fetch.
+     - owner `String` owner of the repository.
+     - name `String` name of the repository.
      - Returns: The retrieved Array of `RepositoryEvent` for the Repository.
      - Throws: Any `NetworkError` encountered during the request.
      */
@@ -38,7 +38,8 @@ final class HomeRepository: HomeRepositoryProtocol {
     private init() {}
     
     func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo] {
-        guard let secret = SecretsManager.shared.getToken() else {
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.unauthorized
         }
         
@@ -61,7 +62,8 @@ final class HomeRepository: HomeRepositoryProtocol {
     }
     
     func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent] {
-        guard let secret = SecretsManager.shared.getToken() else {
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.unauthorized
         }
         

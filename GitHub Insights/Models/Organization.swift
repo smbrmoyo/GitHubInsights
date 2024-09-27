@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Organization: Codable, Identifiable {
+struct Organization: Codable, Equatable, Identifiable {
     let id: Int
     let login, avatarUrl: String
     var description: String?

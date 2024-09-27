@@ -8,28 +8,41 @@
 import Foundation
 
 final class MockProfileRepository: ProfileRepositoryProtocol {
+    
     /// Shared Instance
     static let shared = MockProfileRepository()
+    
+    var shouldFail = false
     
     private init() {}
     
     func getUser() async throws -> User {
-        try await Task.sleep(nanoseconds: 1_000_000_000)
+        guard !shouldFail else {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
+        }
+        
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let _ = SecretsManager.shared.getToken() else {
+            throw NetworkError.unauthorized
+        }
+        
+        try await Task.sleep(nanoseconds: 500_000_000)
         
         return User.MOCK_USER
     }
     
     func fetchUserRepositories(page: Int) async throws -> [GitHubRepo] {
-        try await Task.sleep(nanoseconds: 500_000_000)
-
-        guard let url = Bundle.main.url(forResource: "Repositories", withExtension: "json") else {
-            throw NetworkError.custom(message: "JSON file not found")
+        guard !shouldFail else {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
         }
+                
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let _ = SecretsManager.shared.getToken() else {
+            throw NetworkError.unauthorized
+        }
+
         do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let allRepos = try decoder.decode([GitHubRepo].self, from: data)
+            let allRepos: [GitHubRepo] = try FileManager.loadJson(fileName: "Repositories")
             
             let startIndex = (page - 1) * 10
             let endIndex = min(startIndex + 10, allRepos.count)
@@ -46,16 +59,17 @@ final class MockProfileRepository: ProfileRepositoryProtocol {
     }
     
     func fetchStarredRepositories(page: Int) async throws -> [GitHubRepo] {
-        try await Task.sleep(nanoseconds: 500_000_000)
-        
-        guard let url = Bundle.main.url(forResource: "Repositories", withExtension: "json") else {
-            throw NetworkError.custom(message: "JSON file not found")
+        guard !shouldFail else {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
         }
+        
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let _ = SecretsManager.shared.getToken() else {
+            throw NetworkError.unauthorized
+        }
+        
         do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let allRepos = try decoder.decode([GitHubRepo].self, from: data)
+            let allRepos: [GitHubRepo] = try FileManager.loadJson(fileName: "Repositories")
             
             let startIndex = (page - 1) * 10
             let endIndex = min(startIndex + 10, allRepos.count)
@@ -63,6 +77,8 @@ final class MockProfileRepository: ProfileRepositoryProtocol {
             guard startIndex < allRepos.count else {
                 return []
             }
+            
+            try await Task.sleep(nanoseconds: 500_000_000)
             
             return Array(allRepos[startIndex..<endIndex])
         } catch {
@@ -72,25 +88,28 @@ final class MockProfileRepository: ProfileRepositoryProtocol {
     }
     
     func fetchOrganizations(page: Int) async throws -> [Organization] {
-        try await Task.sleep(nanoseconds: 500_000_000)
-        
-        guard let url = Bundle.main.url(forResource: "Organizations", withExtension: "json") else {
-            throw NetworkError.custom(message: "JSON file not found")
+        guard !shouldFail else {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
         }
+        
+        guard let _ = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
+              let _ = SecretsManager.shared.getToken() else {
+            throw NetworkError.unauthorized
+        }
+        
         do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let allRepos = try decoder.decode([Organization].self, from: data)
+            let allOrgs: [Organization] = try FileManager.loadJson(fileName: "Organizations")
             
             let startIndex = (page - 1) * 10
-            let endIndex = min(startIndex + 10, allRepos.count)
+            let endIndex = min(startIndex + 10, allOrgs.count)
             
-            guard startIndex < allRepos.count else {
+            guard startIndex < allOrgs.count else {
                 return []
             }
             
-            return Array(allRepos[startIndex..<endIndex])
+            try await Task.sleep(nanoseconds: 500_000_000)
+            
+            return Array(allOrgs[startIndex..<endIndex])
         } catch {
             print(error)
             throw error

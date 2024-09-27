@@ -34,7 +34,9 @@ struct AuthView: View {
                               isValidText: .constant(true))
                 
                 Button("Verify") {
-                    authViewModel.authenticate()
+                    Task {
+                        await authViewModel.authenticate()
+                    }
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()

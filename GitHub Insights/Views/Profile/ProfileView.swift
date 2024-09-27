@@ -30,7 +30,6 @@ struct ProfileView: View {
             })
             .sheet(isPresented: $viewModel.showLogOutSheet) {
                 ProfileSheet()
-                    .presentationDetents([.medium])
             }
             .task {
                 await viewModel.getUser()

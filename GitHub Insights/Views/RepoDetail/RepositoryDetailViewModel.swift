@@ -20,7 +20,7 @@ final class RepositoryDetailViewModel: ObservableObject {
     @Published var canRefresh = true
     private var owner = ""
     private var name = ""
-    private var page = 1
+    var page = 1
     
     // MARK: - Lifecycle
     
@@ -57,6 +57,7 @@ final class RepositoryDetailViewModel: ObservableObject {
             uiState = .idle
         } catch {
             uiState = .idle
+            canRefresh = false
             ToastManager.shared.createToast(Toast(style: .error, message: "No Events found."))
         }
     }

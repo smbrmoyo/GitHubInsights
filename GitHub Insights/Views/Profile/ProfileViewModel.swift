@@ -27,15 +27,13 @@ final class ProfileViewModel: ObservableObject {
     
     @MainActor
     func getUser() async {
-        Task {
-            do {
-                uiState = .loading
-                user = try await repository.getUser()
-                uiState = .idle
-            } catch {
-                uiState = .idle
-                ToastManager.shared.createToast(Toast(style: .error, message: "No user found."))
-            }
+        do {
+            uiState = .loading
+            user = try await repository.getUser()
+            uiState = .idle
+        } catch {
+            uiState = .idle
+            ToastManager.shared.createToast(Toast(style: .error, message: "No user found."))
         }
     }
 }

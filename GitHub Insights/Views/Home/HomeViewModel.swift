@@ -18,7 +18,7 @@ final class HomeViewModel: ObservableObject {
     @Published var repositories: [GitHubRepo] = []
     @Published var uiState = UIState.idle
     @Published var canRefresh = true
-    private var page = 1
+    var page = 1
     
     // MARK: - Lifecycle
     
@@ -30,10 +30,6 @@ final class HomeViewModel: ObservableObject {
     
     @MainActor
     func fetchRepositories() async {
-        guard let _ = UserDefaults.standard.string(forKey: "GITHUB_USERNAME") else {
-            return
-        }
-        
         do {
             uiState = repositories.isEmpty ?  .loading : .idle
             let result = try await repository.fetchTrendingRepositories(page: page)
@@ -52,6 +48,7 @@ final class HomeViewModel: ObservableObject {
             uiState = .idle
         } catch {
             uiState = .idle
+            canRefresh = false
             ToastManager.shared.createToast(Toast(style: .error, message: "No repositories found."))
         }
     }
