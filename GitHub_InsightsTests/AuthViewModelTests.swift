@@ -39,71 +39,70 @@ final class AuthViewModelTests: XCTestCase {
     }
     
     func testCheckAuthWithNoUsername() async {
-        // Given no username in UserDefaults
+        // Given
         
-        // When checkAuth is called
+        // When
         await sut.checkAuth()
         
-        // Then the launchState should be `.auth`
+        // Then
         XCTAssertEqual(sut.launchState, .auth, "Launch state should be `.auth` when no username is stored.")
     }
     
     func testCheckAuthSuccess() async {
-        // Given a stored username in UserDefaults
+        // Given
         UserDefaults.standard.set("testUser", forKey: "GITHUB_USERNAME")
         
-        // When checkAuth is called
+        // When
         await sut.checkAuth()
         
-        // Then the launchState should be `.session`
+        // Then
         XCTAssertEqual(sut.launchState, .session, "Launch state should be `.session` after successful authentication.")
     }
     
     func testCheckAuthFailure() async {
-        // Given a stored username and mock repository set to fail
+        // Given
         UserDefaults.standard.set("testUser", forKey: "GITHUB_USERNAME")
         repository.shouldFail = true
         
-        // When checkAuth is called
+        // When
         await sut.checkAuth()
         
-        // Then the launchState should be `.auth` due to failure
+        // Then
         XCTAssertEqual(sut.launchState, .auth, "Launch state should be `.auth` when authentication fails.")
     }
     
     func testAuthenticateSuccess() async {
-        // Given a valid username input
+        // Given
         sut.username = "testUser"
         
-        // When authenticate is called
+        // When
         await sut.authenticate()
         
-        // Then the launchState should be `.session`
+        // Then
         XCTAssertEqual(sut.launchState, .session, "Launch state should be `.session` after successful authentication.")
     }
     
     func testAuthenticateFailureShowsErrorToast() async {
-        // Given the mock repository is set to fail
+        // Given
         sut.username = "invalidUser"
         repository.shouldFail = true
         
-        // When authenticate is called
+        // When
         await sut.authenticate()
         
-        // Then ToastManager should have been called (assuming you have a way to observe ToastManager or its effect)
-        // You may need to use dependency injection or observer to track the creation of a toast.
+        // Then
         XCTAssertEqual(sut.launchState, .auth, "Launch state should remain `.auth` after authentication failure.")
     }
     
     func testSignOutSuccess() async {
-        // Given a session (set username and state)
+        // Given
         UserDefaults.standard.set("testUser", forKey: "GITHUB_USERNAME")
         sut.launchState = .session
         
-        // When signOut is called
+        // When
         sut.signOut()
         
-        // Then username should be removed from UserDefaults and launchState should be `.auth`
+        // Then
         XCTAssertNil(UserDefaults.standard.string(forKey: "GITHUB_USERNAME"), "Username should be cleared from UserDefaults after sign out.")
         XCTAssertEqual(sut.launchState, .auth, "Launch state should be `.auth` after sign out.")
     }

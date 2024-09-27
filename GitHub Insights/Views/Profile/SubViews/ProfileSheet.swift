@@ -12,10 +12,19 @@ struct ProfileSheet: View {
     
     var body: some View {
         VStack {
+            Capsule()
+                        .foregroundColor(Color(.systemGray))
+                        .frame(width: 50, height: 6)
+                        .padding(.top, 10)
+            
+            Spacer()
+            
             Button("Sign Out") {
                 authViewModel.signOut()
             }
             .buttonStyle(.borderedProminent)
+            
+            Spacer()
         }
         .presentationDetents([.medium])
     }

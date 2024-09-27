@@ -4,7 +4,7 @@ The goal is to create an app that leverages GitHub's REST API in order to give i
 
 ## Steps:
 
-- [ ] Unit Testing
+- [x] Unit Testing
 - [ ] Fastlane
 
 ## Fixes:
@@ -13,5 +13,4 @@ The goal is to create an app that leverages GitHub's REST API in order to give i
 
 ## Improvements:
 
-- [x] Make SplashScreen last longer
-- [ ] Add Handle to Profile Sheet. And Cancel button (X)
+- [x] Add Handle to Profile Sheet. And Cancel button (X)

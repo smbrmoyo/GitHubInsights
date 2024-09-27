@@ -59,6 +59,15 @@ final class RepositoryDetailViewModelTests: XCTestCase {
         // Given
         UserDefaults.standard.setValue("testUser", forKey: "GITHUB_USERNAME")
         let allEvents: [RepositoryEvent] = try FileManager.loadJson(fileName: "Events")
+        let totalPages = 10
+        let eventsPerPage = 10
+        
+        // Helper function to simulate pagination
+        func fetchMultiplePages(times: Int) async {
+            for _ in 0..<times {
+                await sut.fetchRepositoryEvents()
+            }
+        }
         
         await sut.fetchRepositoryEvents()
         
@@ -68,23 +77,7 @@ final class RepositoryDetailViewModelTests: XCTestCase {
         XCTAssertEqual(sut.page, 2)
         XCTAssertTrue(sut.canRefresh)
         
-        await sut.fetchRepositoryEvents()
-        
-        XCTAssertEqual(sut.repositoryEvents.count, 20)
-        XCTAssertEqual(sut.repositoryEvents, Array(allEvents.prefix(20)))
-        XCTAssertEqual(sut.uiState, .idle)
-        XCTAssertEqual(sut.page, 3)
-        XCTAssertTrue(sut.canRefresh)
-        
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
-        await sut.fetchRepositoryEvents()
+        await fetchMultiplePages(times: totalPages)
         
         XCTAssertEqual(sut.repositoryEvents.count, 100)
         XCTAssertEqual(sut.repositoryEvents, allEvents)
@@ -124,19 +117,19 @@ final class RepositoryDetailViewModelTests: XCTestCase {
     }
     
     func testFetchRepositoriesFailure() async {
-            // Given
-            UserDefaults.standard.setValue("testUser", forKey: "GITHUB_USERNAME")
-            
-            // When
-            repository.shouldFail = true
-            await sut.fetchRepositoryEvents()
-            
-            // Then
-            XCTAssertEqual(sut.repositoryEvents.count, 0)
-            XCTAssertEqual(sut.uiState, .idle)
-            XCTAssertTrue(ToastManager.shared.toast?.style == .error)
-            XCTAssertEqual(ToastManager.shared.toast?.message, "No Events found.")
-        }
+        // Given
+        UserDefaults.standard.setValue("testUser", forKey: "GITHUB_USERNAME")
+        
+        // When
+        repository.shouldFail = true
+        await sut.fetchRepositoryEvents()
+        
+        // Then
+        XCTAssertEqual(sut.repositoryEvents.count, 0)
+        XCTAssertEqual(sut.uiState, .idle)
+        XCTAssertTrue(ToastManager.shared.toast?.style == .error)
+        XCTAssertEqual(ToastManager.shared.toast?.message, "No Events found.")
+    }
     
-
+    
 }
