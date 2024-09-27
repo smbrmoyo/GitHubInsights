@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockProfileRepository: ProfileRepositoryProtocol {
+final class MockProfileRepository: ProfileRepositoryProtocol {
     /// Shared Instance
     static let shared = MockProfileRepository()
     

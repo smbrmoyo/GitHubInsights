@@ -7,14 +7,20 @@
 
 import Foundation
 
-class MockHomeRepository: HomeRepositoryProtocol {
+final class MockHomeRepository: HomeRepositoryProtocol {
     
     /// Shared Instance
     static let shared = MockHomeRepository()
     
+    var shouldFail = false
+    
     private init() {}
     
     func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo] {
+        guard !shouldFail else {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
+        }
+        
         try await Task.sleep(nanoseconds: 500_000_000)
         
         guard let url = Bundle.main.url(forResource: "Repositories", withExtension: "json") else {
@@ -41,6 +47,10 @@ class MockHomeRepository: HomeRepositoryProtocol {
     }
     
     func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent] {
+        guard !shouldFail else {
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
+        }
+        
         try await Task.sleep(nanoseconds: 500_000_000)
         
         guard let url = Bundle.main.url(forResource: "Events", withExtension: "json") else {

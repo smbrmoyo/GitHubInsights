@@ -22,9 +22,10 @@ protocol HomeRepositoryProtocol {
      - parameter page `Int` page to fetch
      */
     func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent]
+    
 }
 
-class HomeRepository: HomeRepositoryProtocol {
+final class HomeRepository: HomeRepositoryProtocol {
     
     /// Shared Instance
     static let shared = HomeRepository()
@@ -32,7 +33,7 @@ class HomeRepository: HomeRepositoryProtocol {
     private init() {}
     
     func fetchTrendingRepositories(page: Int) async throws -> [GitHubRepo] {
-        guard let secret = SecretsManager.getToken() else {
+        guard let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.unauthorized
         }
         
@@ -55,7 +56,7 @@ class HomeRepository: HomeRepositoryProtocol {
     }
     
     func fetchRepositoryEvents(owner: String, name: String, page: Int) async throws -> [RepositoryEvent] {
-        guard let secret = SecretsManager.getToken() else {
+        guard let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.unauthorized
         }
         

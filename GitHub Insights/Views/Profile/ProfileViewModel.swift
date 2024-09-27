@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProfileViewModel: ObservableObject {
+final class ProfileViewModel: ObservableObject {
     
     // MARK: - Dependencies
     private let repository: ProfileRepositoryProtocol

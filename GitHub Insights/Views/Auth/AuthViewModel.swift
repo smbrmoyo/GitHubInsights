@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor
-class AuthViewModel: ObservableObject {
+final class AuthViewModel: ObservableObject {
     
     // MARK: - Dependencies
     

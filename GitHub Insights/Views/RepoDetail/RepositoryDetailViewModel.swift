@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RepositoryDetailViewModel: ObservableObject {
+final class RepositoryDetailViewModel: ObservableObject {
     
     // MARK: - Dependencies
     

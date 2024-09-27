@@ -28,11 +28,12 @@ protocol ProfileRepositoryProtocol {
     
     /**
      Retrieves the organization memberships of a user
+     - parameter page `Int` page to fetch
      */
     func fetchOrganizations(page: Int) async throws -> [Organization]
 }
 
-class ProfileRepository: ProfileRepositoryProtocol {
+final class ProfileRepository: ProfileRepositoryProtocol {
     
     /// Shared Instance
     static let shared = ProfileRepository()
@@ -41,7 +42,7 @@ class ProfileRepository: ProfileRepositoryProtocol {
     
     func getUser() async throws -> User {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
-              let secret = SecretsManager.getToken() else {
+              let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
@@ -58,7 +59,7 @@ class ProfileRepository: ProfileRepositoryProtocol {
     
     func fetchUserRepositories(page: Int) async throws -> [GitHubRepo] {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
-              let secret = SecretsManager.getToken() else {
+              let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
@@ -80,7 +81,7 @@ class ProfileRepository: ProfileRepositoryProtocol {
     
     func fetchStarredRepositories(page: Int) async throws -> [GitHubRepo] {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
-              let secret = SecretsManager.getToken() else {
+              let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
@@ -101,7 +102,7 @@ class ProfileRepository: ProfileRepositoryProtocol {
     
     func fetchOrganizations(page: Int) async throws -> [Organization] {
         guard let username = UserDefaults.standard.object(forKey: "GITHUB_USERNAME") as? String,
-              let secret = SecretsManager.getToken() else {
+              let secret = SecretsManager.shared.getToken() else {
             throw NetworkError.custom(message: "No user found. Please authenticate.")
         }
         
@@ -117,4 +118,5 @@ class ProfileRepository: ProfileRepositoryProtocol {
             throw error
         }
     }
+    
 }

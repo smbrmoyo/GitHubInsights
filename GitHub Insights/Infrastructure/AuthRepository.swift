@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AuthRepository {
+final class AuthRepository {
     
     /// Shared Instance
     static let shared = AuthRepository()

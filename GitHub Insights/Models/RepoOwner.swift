@@ -11,7 +11,7 @@ struct RepoOwner: Codable, Equatable {
     let id: Int
     let login, avatarUrl, type, url: String
     
-    static let DEFAULT_REPO_OWNER = RepoOwner(id: 0,
+    static let EMPTY_REPO_OWNER = RepoOwner(id: 0,
                                               login: "",
                                               avatarUrl: "",
                                               type: "",

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StarredRepositoriesViewModel: ObservableObject {
+final class StarredRepositoriesViewModel: ObservableObject {
     
     // MARK: - Dependencies
     

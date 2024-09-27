@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OrganizationsViewModel: ObservableObject {
+final class OrganizationsViewModel: ObservableObject {
     
     // MARK: - Dependencies
     

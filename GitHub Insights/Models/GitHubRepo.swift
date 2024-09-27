@@ -16,7 +16,7 @@ struct GitHubRepo: Codable, Equatable, Identifiable {
     var forks: Int = 0
     var watchers: Int = 0
     var size: Int = 0
-    var owner: RepoOwner = .DEFAULT_REPO_OWNER
+    var owner: RepoOwner = .EMPTY_REPO_OWNER
     var pushedAt: String = ""
     var visibility: String = ""
     
