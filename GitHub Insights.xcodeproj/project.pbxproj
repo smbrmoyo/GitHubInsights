@@ -55,6 +55,7 @@
 		04E6CF3E2CA6638C0065A524 /* MockAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF3D2CA6638C0065A524 /* MockAuthRepository.swift */; };
 		04E6CF402CA665420065A524 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF3F2CA665420065A524 /* AuthViewModelTests.swift */; };
 		04E6CF442CA6E2E50065A524 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF432CA6E2E50065A524 /* TestView.swift */; };
+		04E6CF512CA827DA0065A524 /* Matchfile in Resources */ = {isa = PBXBuildFile; fileRef = 04E6CF502CA827DA0065A524 /* Matchfile */; };
 		04EFB1F72C8F5A4300E2FCF0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */; };
 		04EFB1FA2C8F5A7B00E2FCF0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1F92C8F5A7B00E2FCF0 /* AuthView.swift */; };
 		04EFB1FC2C8F5AA600E2FCF0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1FB2C8F5AA600E2FCF0 /* AuthViewModel.swift */; };
@@ -146,9 +147,9 @@
 		04E6CF492CA809650065A524 /* .env.default.sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.default.sample; sourceTree = "<group>"; };
 		04E6CF4A2CA809650065A524 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
 		04E6CF4B2CA809650065A524 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
-		04E6CF4C2CA809650065A524 /* Matchfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Matchfile; sourceTree = "<group>"; };
 		04E6CF4D2CA809650065A524 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		04E6CF4E2CA809650065A524 /* report.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
+		04E6CF502CA827DA0065A524 /* Matchfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Matchfile; sourceTree = "<group>"; };
 		04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04EFB1F92C8F5A7B00E2FCF0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04EFB1FB2C8F5AA600E2FCF0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -379,8 +380,8 @@
 				04E6CF482CA809650065A524 /* .env.default */,
 				04E6CF492CA809650065A524 /* .env.default.sample */,
 				04E6CF4A2CA809650065A524 /* Appfile */,
+				04E6CF502CA827DA0065A524 /* Matchfile */,
 				04E6CF4B2CA809650065A524 /* Fastfile */,
-				04E6CF4C2CA809650065A524 /* Matchfile */,
 				04E6CF4D2CA809650065A524 /* README.md */,
 				04E6CF4E2CA809650065A524 /* report.xml */,
 			);
@@ -598,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E6CF512CA827DA0065A524 /* Matchfile in Resources */,
 				044C66692CA5556A005019EB /* LaunchScreen.storyboard in Resources */,
 				04D130082C8D9B1B00EB0B29 /* .gitignore in Resources */,
 				044C66522CA50A2E005019EB /* Repositories.json in Resources */,
@@ -881,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smbrmoyo.GitHub-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -923,7 +925,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smbrmoyo.GitHub-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
