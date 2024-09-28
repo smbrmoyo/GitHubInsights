@@ -20,18 +20,19 @@ Welcome to **GitHub Insights** – an app built for iOS using SwiftUI. This proj
 ## Screenshots
 
 <p>
-  <img src="./img/Login.png" width="200">
-  <img src="./img/Home.jpg" width="200">
-  <img src="./img/Kategorien.jpg" width="200">
-  <img src="./img/Dashboard.jpg" width="200">
-  <img src="./img/Gästeliste.jpg" width="200">
+  <img src="./img/sc1.png" width="200">
+  <img src="./img/sc2.png" width="200">
+  <img src="./img/sc3.png" width="200">
+  <img src="./img/sc4.png" width="200">
+  <img src="./img/sc5.png" width="200">
+  <img src="./img/sc6.png" width="200">
 </p>
 
 ---
 
 ## Setup and Installation
 
-1. Clone the repository:
+Clone the repository:
 
    ```bash
    git clone https://github.com/smbrmoyo/GitHubInsights.git
