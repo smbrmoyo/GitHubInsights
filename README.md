@@ -20,12 +20,12 @@ Welcome to **GitHub Insights** – an app built for iOS using SwiftUI. This proj
 ## Screenshots
 
 <p>
-  <img src="./img/sc1.png" width="200">
-  <img src="./img/sc2.png" width="200">
-  <img src="./img/sc3.png" width="200">
-  <img src="./img/sc4.png" width="200">
-  <img src="./img/sc5.png" width="200">
-  <img src="./img/sc6.png" width="200">
+  <img src="./images/sc1.png" width="200">
+  <img src="./images/sc2.png" width="200">
+  <img src="./images/sc3.png" width="200">
+  <img src="./images/sc4.png" width="200">
+  <img src="./images/sc5.png" width="200">
+  <img src="./images/sc6.png" width="200">
 </p>
 
 ---
