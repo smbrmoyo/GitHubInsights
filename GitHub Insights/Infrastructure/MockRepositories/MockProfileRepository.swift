@@ -26,7 +26,7 @@ final class MockProfileRepository: ProfileRepositoryProtocol {
             throw NetworkError.unauthorized
         }
         
-        try await Task.sleep(nanoseconds: 500_000_000)
+        try await Task.sleep(nanoseconds: 100_000_000)
         
         return User.MOCK_USER
     }
@@ -78,7 +78,7 @@ final class MockProfileRepository: ProfileRepositoryProtocol {
                 return []
             }
             
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await Task.sleep(nanoseconds: 100_000_000)
             
             return Array(allRepos[startIndex..<endIndex])
         } catch {
@@ -107,7 +107,7 @@ final class MockProfileRepository: ProfileRepositoryProtocol {
                 return []
             }
             
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await Task.sleep(nanoseconds: 100_000_000)
             
             return Array(allOrgs[startIndex..<endIndex])
         } catch {

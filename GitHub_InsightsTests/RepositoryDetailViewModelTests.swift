@@ -60,7 +60,6 @@ final class RepositoryDetailViewModelTests: XCTestCase {
         UserDefaults.standard.setValue("testUser", forKey: "GITHUB_USERNAME")
         let allEvents: [RepositoryEvent] = try FileManager.loadJson(fileName: "Events")
         let totalPages = 10
-        let eventsPerPage = 10
         
         // Helper function to simulate pagination
         func fetchMultiplePages(times: Int) async {

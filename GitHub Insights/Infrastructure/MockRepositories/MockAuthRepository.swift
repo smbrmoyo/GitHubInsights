@@ -21,7 +21,7 @@ final class MockAuthRepository: AuthRepositoryProtocol {
             throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Fetch error"]) as Error
         }
         
-        try await Task.sleep(nanoseconds: 500_000_000)
+        try await Task.sleep(nanoseconds: 100_000_000)
         
         UserDefaults.standard.setValue("testUser", forKey: "GITHUB_USERNAME")
         

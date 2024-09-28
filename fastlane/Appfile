@@ -1,0 +1,3 @@
+app_identifier("com.smbrmoyo.GitHub-Insights") # The bundle identifier of your app
+apple_id("brianmoyou@gmail.com") # Your Apple Developer Portal username
+

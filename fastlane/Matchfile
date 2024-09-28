@@ -1,0 +1,8 @@
+git_url("git@github.com:smbrmoyo/GitHubInsights.git")
+
+storage_mode("git")
+
+type("appstore") # The default type, can be: appstore, adhoc, enterprise or development
+
+app_identifier("com.smbrmoyo.GitHub-Insights")
+username("brianmoyou@gmail.com") 

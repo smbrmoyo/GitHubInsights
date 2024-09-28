@@ -36,7 +36,7 @@ final class MockHomeRepository: HomeRepositoryProtocol {
                 return []
             }
             
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await Task.sleep(nanoseconds: 100_000_000)
 
             return Array(allRepos[startIndex..<endIndex])
         } catch {
@@ -65,7 +65,7 @@ final class MockHomeRepository: HomeRepositoryProtocol {
                 return []
             }
             
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await Task.sleep(nanoseconds: 100_000_000)
 
             return Array(allEvents[startIndex..<endIndex])
         } catch {

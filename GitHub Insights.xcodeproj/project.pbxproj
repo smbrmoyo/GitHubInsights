@@ -54,6 +54,7 @@
 		04E6CF3C2CA65F780065A524 /* OrganizationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF3B2CA65F780065A524 /* OrganizationsViewModelTests.swift */; };
 		04E6CF3E2CA6638C0065A524 /* MockAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF3D2CA6638C0065A524 /* MockAuthRepository.swift */; };
 		04E6CF402CA665420065A524 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF3F2CA665420065A524 /* AuthViewModelTests.swift */; };
+		04E6CF442CA6E2E50065A524 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6CF432CA6E2E50065A524 /* TestView.swift */; };
 		04EFB1F72C8F5A4300E2FCF0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */; };
 		04EFB1FA2C8F5A7B00E2FCF0 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1F92C8F5A7B00E2FCF0 /* AuthView.swift */; };
 		04EFB1FC2C8F5AA600E2FCF0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFB1FB2C8F5AA600E2FCF0 /* AuthViewModel.swift */; };
@@ -138,6 +139,16 @@
 		04E6CF3B2CA65F780065A524 /* OrganizationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationsViewModelTests.swift; sourceTree = "<group>"; };
 		04E6CF3D2CA6638C0065A524 /* MockAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthRepository.swift; sourceTree = "<group>"; };
 		04E6CF3F2CA665420065A524 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
+		04E6CF432CA6E2E50065A524 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		04E6CF452CA809650065A524 /* report.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = report.html; sourceTree = "<group>"; };
+		04E6CF462CA809650065A524 /* report.junit */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = report.junit; sourceTree = "<group>"; };
+		04E6CF482CA809650065A524 /* .env.default */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.default; sourceTree = "<group>"; };
+		04E6CF492CA809650065A524 /* .env.default.sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.default.sample; sourceTree = "<group>"; };
+		04E6CF4A2CA809650065A524 /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		04E6CF4B2CA809650065A524 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		04E6CF4C2CA809650065A524 /* Matchfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Matchfile; sourceTree = "<group>"; };
+		04E6CF4D2CA809650065A524 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		04E6CF4E2CA809650065A524 /* report.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
 		04EFB1F62C8F5A4300E2FCF0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04EFB1F92C8F5A7B00E2FCF0 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04EFB1FB2C8F5AA600E2FCF0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -241,6 +252,7 @@
 		04BD91342C8C6A8200DE2A08 = {
 			isa = PBXGroup;
 			children = (
+				04E6CF4F2CA809650065A524 /* fastlane */,
 				04D130072C8D9B1B00EB0B29 /* .gitignore */,
 				04BD91532C8C6F3700DE2A08 /* README.md */,
 				04BD913F2C8C6A8200DE2A08 /* GitHub Insights */,
@@ -295,6 +307,7 @@
 				04EFB2022C8F604500E2FCF0 /* Components */,
 				04EFB1F82C8F5A7500E2FCF0 /* Auth */,
 				04D130162C8DB59700EB0B29 /* Profile */,
+				04E6CF432CA6E2E50065A524 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +361,30 @@
 				04EFB2132C8F776400E2FCF0 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		04E6CF472CA809650065A524 /* test_output */ = {
+			isa = PBXGroup;
+			children = (
+				04E6CF452CA809650065A524 /* report.html */,
+				04E6CF462CA809650065A524 /* report.junit */,
+			);
+			path = test_output;
+			sourceTree = "<group>";
+		};
+		04E6CF4F2CA809650065A524 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				04E6CF472CA809650065A524 /* test_output */,
+				04E6CF482CA809650065A524 /* .env.default */,
+				04E6CF492CA809650065A524 /* .env.default.sample */,
+				04E6CF4A2CA809650065A524 /* Appfile */,
+				04E6CF4B2CA809650065A524 /* Fastfile */,
+				04E6CF4C2CA809650065A524 /* Matchfile */,
+				04E6CF4D2CA809650065A524 /* README.md */,
+				04E6CF4E2CA809650065A524 /* report.xml */,
+			);
+			path = fastlane;
 			sourceTree = "<group>";
 		};
 		04EFB1F82C8F5A7500E2FCF0 /* Auth */ = {
@@ -618,6 +655,7 @@
 				04F5CAB32C9ED11400FDE889 /* RepositoryDetailView.swift in Sources */,
 				04EFB2102C8F649400E2FCF0 /* String+Extension.swift in Sources */,
 				04F5CAAF2C9ECEAE00FDE889 /* Date+Extension.swift in Sources */,
+				04E6CF442CA6E2E50065A524 /* TestView.swift in Sources */,
 				04F5CAB92C9F22C600FDE889 /* RepositoryDetailViewModel.swift in Sources */,
 				044C66602CA51F30005019EB /* OrganizationRowView.swift in Sources */,
 				04EFB1F72C8F5A4300E2FCF0 /* ProfileView.swift in Sources */,
@@ -821,10 +859,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Insights/Preview Content\"";
-				DEVELOPMENT_TEAM = 27MXYDTP56;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 27MXYDTP56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GitHub-Insights-Info.plist";
@@ -840,9 +881,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smbrmoyo.GitHub-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development com.smbrmoyo.GitHub-Insights";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -858,10 +901,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GitHub Insights/Preview Content\"";
-				DEVELOPMENT_TEAM = 27MXYDTP56;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 27MXYDTP56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GitHub-Insights-Info.plist";
@@ -877,9 +923,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.smbrmoyo.GitHub-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.smbrmoyo.GitHub-Insights";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
