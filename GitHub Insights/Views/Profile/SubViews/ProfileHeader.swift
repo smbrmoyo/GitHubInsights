@@ -20,8 +20,10 @@ struct ProfileHeader: View {
                     NetworkImageView(imageURL: user.avatarUrl)
                     
                     VStack(alignment: .leading) {
-                        Text(user.name)
-                            .font(.title2)
+                        if let name = user.name {
+                            Text(name)
+                                .font(.title2)
+                        }
                         Text(user.login)
                             .font(.title3)
                             .foregroundStyle(.gray)
@@ -31,36 +33,36 @@ struct ProfileHeader: View {
                     Spacer()
                 }
                 
-                Text(user.bio)
+                Text(user.bio ?? "")
                     .font(.title3)
                     .padding(.vertical)
                     .lineLimit(3)
                     .truncationMode(.tail)
                 
                 HStack {
-                    if !user.company.isEmpty {
-                        Label(user.company, systemImage: "building.2")
+                    if let company = user.company {
+                        Label(company, systemImage: "building.2")
                             .foregroundStyle(.gray)
                     }
                     
-                    if !user.location.isEmpty {
-                        Label(user.location, systemImage: "map")
+                    if let location = user.location {
+                        Label(location, systemImage: "map")
                             .foregroundStyle(.gray)
                     }
                 }
                 .padding(.vertical, 1)
                 
                 HStack {
-                    if !user.location.isEmpty {
+                    if let blog = user.blog {
                         Image(systemName: "link")
                             .foregroundStyle(.gray)
-                        Text(user.blog)
+                        Text(blog)
                     }
                     
-                    if !user.twitterUsername.isEmpty {
+                    if let twitterUsername = user.twitterUsername {
                         Image(systemName: "xmark")
                             .foregroundStyle(.gray)
-                        Text("@\(user.twitterUsername)")
+                        Text("@\(twitterUsername)")
                     }
                 }
                 .padding(.vertical, 1)
