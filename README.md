@@ -30,16 +30,16 @@ Welcome to **GitHub Insights** – an app built for iOS using SwiftUI. This proj
 
 ---
 
+## TestFlight Link
+
+https://testflight.apple.com/join/UvMpFSSJ
+
+---
+
 ## Setup and Installation
 
 Clone the repository:
 
    ```bash
    git clone https://github.com/smbrmoyo/GitHubInsights.git
-   cd GitHubInsights``
-
----
-
-## TestFlight Link
-
-https://testflight.apple.com/join/UvMpFSSJ
+   cd GitHubInsights
