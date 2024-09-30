@@ -36,4 +36,10 @@ Clone the repository:
 
    ```bash
    git clone https://github.com/smbrmoyo/GitHubInsights.git
-   cd GitHubInsights
+   cd GitHubInsights``
+
+---
+
+## TestFlight Link
+
+https://testflight.apple.com/join/UvMpFSSJ
